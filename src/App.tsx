@@ -1,14 +1,33 @@
 import React from 'react';
 import './App.css';
-import Technologies from "./Technologies/Technologies";
-import Header from "./Header/Header";
+import 'macro-css'
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
+import Profile from "./components/Profile";
 
 
 function App() {
     return (
-        <div>
-            <Header/>
-            <Technologies/>
+        <div className={'appWrapper'}>
+            <Header
+                src={"./social_network_logo.ico"}
+                headerTitle={"Samurai Social Network"}/>
+
+            <Navigation
+                mainNavLinks={[
+                    {link: "#", navTitle: "Profile"},
+                    {link: "#", navTitle: "Messages"},
+                    {link: "#", navTitle: "News"},
+                    {link: "#", navTitle: "Music"}
+                ]}
+                settingsLinks={{
+                    link: "#",
+                    navTitle: "Settings"
+                }}/>
+
+            <Profile/>
+
+
         </div>
     );
 }

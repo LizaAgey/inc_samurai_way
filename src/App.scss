@@ -1,14 +1,31 @@
+//variables
+
+$light-color: #FAFAF9;
+$dark-green-color: #486230;
+$middle-green-color: #9eb08e;
+$light-grey-color: #f3f3f3;
+$dark-color: #171D1F;
+$grey-color: #5E605F;
+$brown-color: #8A846C;
+
+//GENERAL STYLES:
+
 a {
   all: unset;
   cursor: pointer;
 }
 
 .appWrapper {
-  background-color: #FAFAF9;
+  background-color: $light-color;
   max-width: 900px;
   margin: 40px auto;
+
   display: grid;
-  grid-template-areas: "header header" "navigation content";
+
+  grid-template-areas:
+  "header header"
+  "navigation content";
+
   grid-template-rows: 75px 15fr;
   grid-auto-columns: 1fr 2fr;
 }
@@ -19,12 +36,15 @@ a {
   overflow: hidden;
 }
 
+//OTHER STYLES
 .header {
-  background-color: #9eb08e;
+  background-color: $middle-green-color;
   grid-area: header;
-}
-.header img {
-  width: 50px;
+
+  img {
+    width: 50px;
+  }
+
 }
 
 .navigation {
@@ -34,14 +54,21 @@ a {
 .content {
   grid-area: content;
   display: grid;
-  grid-template-areas: "imgBackground imgBackground" "userImg userInfo" "postsArea postsArea";
+
+  grid-template-areas:
+  "imgBackground imgBackground"
+  "userImg userInfo"
+  "postsArea postsArea";
+
   grid-template-rows: 100px 1fr 100%;
   grid-auto-columns: 1fr 2fr;
 }
 
 .imgBackground {
   grid-area: imgBackground;
-  background: linear-gradient(90deg, rgb(229, 140, 138) 35%, rgb(238, 192, 198) 100%);
+  background: linear-gradient(90deg, rgba(229,140,138,1) 35%, rgba(238,192,198,1) 100%);
+
+
 }
 
 .userImg {
@@ -53,41 +80,48 @@ a {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
   align-self: center;
   justify-self: center;
-}
-.userImg img {
-  width: 150px;
-  height: auto;
+
+  img {
+    width: 150px;
+    height: auto;
+  }
 }
 
 .userInfo {
   grid-area: userInfo;
+
 }
 
-.userDetails p {
-  font-weight: bold;
-}
-.userDetails p span {
-  font-weight: normal;
+.userDetails {
+  p {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
 }
 
 .postsArea {
   grid-area: postsArea;
+  h3 {
+    text-align: center;
+  }
 }
-.postsArea h3 {
-  text-align: center;
-}
+
 
 input {
   all: unset;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
   width: 90%;
   min-height: 50px;
   align-self: center;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   border-radius: 15px;
-  background-color: #f3f3f3;
+  background-color: $light-grey-color;
+
 }
 
 button {
@@ -99,33 +133,32 @@ button {
   width: 60px;
   cursor: pointer;
   opacity: 0.8;
-  background-color: #486230;
-  color: #FAFAF9;
+  background-color: $dark-green-color;
+  color: $light-color;
   text-align: center;
   text-justify: auto;
-}
-button:hover {
-  opacity: 1;
-  transition: 0.2s;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  }
 }
 
 .postCard {
   width: 90%;
   margin: 20px auto;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+  p {
+    width: 100%;
+    min-height: 50px;
+    background-color: $light-grey-color;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 15px;
+    padding: 15px;
+  }
 }
-.postCard img {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-}
-.postCard p {
-  width: 100%;
-  min-height: 50px;
-  background-color: #f3f3f3;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  border-radius: 15px;
-  padding: 15px;
-}
-
-/*# sourceMappingURL=App.css.map */
