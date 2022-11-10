@@ -78,26 +78,6 @@ input {
   background-color: #f3f3f3;
 }
 
-button {
-  all: unset;
-  margin: 20px 80% 0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  height: 30px;
-  width: 60px;
-  cursor: pointer;
-  opacity: 0.8;
-  background-color: #486230;
-  color: #FAFAF9;
-  text-align: center;
-  text-justify: auto;
-}
-button:hover {
-  opacity: 1;
-  transition: 0.2s;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-}
-
 .postCard {
   width: 90%;
   margin: 20px auto;

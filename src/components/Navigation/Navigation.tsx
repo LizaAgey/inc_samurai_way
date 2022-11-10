@@ -1,7 +1,6 @@
 import React from 'react';
-import '../../App.css';
 import 'macro-css'
-import styles from "./Header.module.scss"
+// import styles from "./Header.module.scss"
 
 // type for data which is inserted into <a> in navigation
 type NavLinkType = {

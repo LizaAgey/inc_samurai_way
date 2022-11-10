@@ -1,0 +1,42 @@
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.appWrapper {
+  background-color: #FAFAF9;
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-areas: "header header" "navigation content";
+  grid-template-rows: 75px 15fr;
+  grid-auto-columns: 1fr 2fr;
+}
+
+.navigation, .content {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+button {
+  all: unset;
+  margin: 20px 80% 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: red;
+  color: #FAFAF9;
+  text-align: center;
+  text-justify: auto;
+}
+button:hover {
+  opacity: 1;
+  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+/*# sourceMappingURL=Button.module.css.map */
