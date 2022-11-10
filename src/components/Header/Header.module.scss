@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.header {
+  background-color: $middle-green-color;
+  grid-area: header;
+
+  img {
+    width: 50px;
+  }
+
+}

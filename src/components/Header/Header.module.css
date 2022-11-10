@@ -1,0 +1,30 @@
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.appWrapper {
+  background-color: #FAFAF9;
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-areas: "header header" "navigation content";
+  grid-template-rows: 75px 15fr;
+  grid-auto-columns: 1fr 2fr;
+}
+
+.navigation, .content {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #9eb08e;
+  grid-area: header;
+}
+.header img {
+  width: 50px;
+}
+
+/*# sourceMappingURL=Header.module.css.map */

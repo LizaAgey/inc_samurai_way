@@ -1,0 +1,113 @@
+@import "../../App.scss";
+
+.content {
+  grid-area: content;
+  display: grid;
+
+  grid-template-areas:
+  "imgBackground imgBackground"
+  "userImg userInfo"
+  "postsArea postsArea";
+
+  grid-template-rows: 100px 1fr 100%;
+  grid-auto-columns: 1fr 2fr;
+}
+
+.imgBackground {
+  grid-area: imgBackground;
+  background: linear-gradient(90deg, rgba(229,140,138,1) 35%, rgba(238,192,198,1) 100%);
+
+
+}
+
+.userImg {
+  grid-area: userImg;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  align-self: center;
+  justify-self: center;
+
+  img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.userInfo {
+  grid-area: userInfo;
+
+}
+
+.userDetails {
+  p {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
+}
+
+.postsArea {
+  grid-area: postsArea;
+  h3 {
+    text-align: center;
+  }
+}
+
+
+input {
+  all: unset;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  width: 90%;
+  min-height: 50px;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 15px;
+  background-color: $light-grey-color;
+
+}
+
+button {
+  all: unset;
+  margin: 20px 80% 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: $dark-green-color;
+  color: $light-color;
+  text-align: center;
+  text-justify: auto;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  }
+}
+
+.postCard {
+  width: 90%;
+  margin: 20px auto;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+  p {
+    width: 100%;
+    min-height: 50px;
+    background-color: $light-grey-color;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 15px;
+    padding: 15px;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import styles from "./Header.module.scss"
 import 'macro-css'
 
 type HeaderType = {
@@ -9,7 +9,7 @@ type HeaderType = {
 
 const Header: React.FC<HeaderType> = (props) => {
     return (
-        <header className="header d-flex ">
+        <header className={`${styles.header} d-flex`} >
             <img className="mt-10 mb-10 ml-30" src={props.src} alt="logo"/>
             <h3 className='ml-25 mt-25'>{props.headerTitle}</h3>
         </header>

@@ -19,10 +19,6 @@ a {
   overflow: hidden;
 }
 
-.navigation {
-  grid-area: navigation;
-}
-
 .content {
   grid-area: content;
   display: grid;
@@ -120,4 +116,4 @@ button:hover {
   padding: 15px;
 }
 
-/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=Profile.module.css.map */
