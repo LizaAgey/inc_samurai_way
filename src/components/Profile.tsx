@@ -21,7 +21,6 @@ const Profile = () => {
                 </div>
             </div>
 
-
             <div className="postsArea d-flex flex-column">
                 <h3>
                     <label htmlFor="posts">My posts</label>
