@@ -7,7 +7,7 @@ type ButtonType = {
 
 const Button: React.FC<ButtonType> = (props) => {
     return (
-        <button>{props.text}</button>
+        <button className={styles.button}>{props.text}</button>
     );
 };
 

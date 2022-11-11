@@ -1,6 +1,6 @@
 @import "../../App.scss";;
 
-button {
+.button {
   all: unset;
   margin: 20px 80% 0;
   box-sizing: border-box;
@@ -9,8 +9,7 @@ button {
   width: 60px;
   cursor: pointer;
   opacity: 0.8;
-  //background-color: $dark-green-color;
-  background-color: red;
+  background-color: $dark-green-color;
   color: $light-color;
   text-align: center;
   text-justify: auto;

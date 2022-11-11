@@ -1,0 +1,23 @@
+@import "../../../App.scss";
+
+
+.postsArea {
+  grid-area: postsArea;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+textarea {
+  all: unset;
+  text-overflow: ellipsis;
+
+  width: 85%;
+  min-height: 50px;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 15px;
+  background-color: $light-grey-color;
+
+}

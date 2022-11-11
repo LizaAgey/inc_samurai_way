@@ -19,22 +19,38 @@ a {
   overflow: hidden;
 }
 
-.postsArea {
-  grid-area: postsArea;
+.postCard {
+  width: 90%;
+  margin: 10px auto;
 }
-.postsArea h3 {
-  text-align: center;
+.postCard .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
-
-textarea {
-  all: unset;
-  text-overflow: ellipsis;
-  width: 85%;
+.postCard p {
+  width: 100%;
   min-height: 50px;
-  align-self: center;
+  background-color: #f3f3f3;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   border-radius: 15px;
-  background-color: #f3f3f3;
+  padding: 15px;
+  position: relative;
 }
 
-/*# sourceMappingURL=Post.module.css.map */
+.like {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+}
+
+.likesNumber {
+  position: absolute;
+  bottom: 10px;
+  right: 55px;
+  justify-self: center;
+}
+
+/*# sourceMappingURL=PostCard.module.css.map */
