@@ -3,7 +3,8 @@ import styles from "./Post.module.scss";
 import Button from "../../Button/Button";
 import PostCard from "./PostCard/PostCard";
 
-type PostType = {}
+//TODO: --------------------"ANY" is the component type !!!
+type PostType = any
 
 const Post: React.FC<PostType> = (props) => {
     debugger

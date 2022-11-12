@@ -15,15 +15,13 @@ function App() {
 
             <Navigation
                 mainNavLinks={[
-                    {link: "#", navTitle: "Profile"},
-                    {link: "#", navTitle: "Messages"},
-                    {link: "#", navTitle: "News"},
-                    {link: "#", navTitle: "Music"}
+                    {link: "#", navTitle: "Profile", className: ""},
+                    {link: "#", navTitle: "Messages", className: ""},
+                    {link: "#", navTitle: "News", className: ""},
+                    {link: "#", navTitle: "Music", className: ""},
+                    {link: "#", navTitle: "Settings", className: "mt-50"}
                 ]}
-                settingsLinks={{
-                    link: "#",
-                    navTitle: "Settings"
-                }}/>
+                />
 
             <Profile/>
 

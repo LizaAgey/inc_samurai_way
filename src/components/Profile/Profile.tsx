@@ -4,8 +4,10 @@ import styles from "./Profile.module.scss"
 import Post from "./Post/Post";
 import User from "./Post/User/User";
 
+//TODO: --------------------"ANY" is the component type !!!
+type ProfileType = any
 
-const Profile = () => {
+const Profile: React.FC<ProfileType> = (props) => {
     return (
         <div className={`${styles.content} m-20`}>
             <User
