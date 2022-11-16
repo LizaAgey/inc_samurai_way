@@ -5,10 +5,10 @@ a {
 
 .appWrapper {
   background-color: #FAFAF9;
-  max-width: 900px;
+  width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header" "navigation content";
+  grid-template-areas: "header header " "navigation content ";
   grid-template-rows: 75px 15fr;
   grid-auto-columns: 1fr 2fr;
 }
@@ -21,6 +21,11 @@ a {
 
 .content {
   grid-area: content;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.content {
   display: grid;
   grid-template-areas: "imgBackground imgBackground" "userImg userInfo" "postsArea postsArea";
   grid-template-rows: 100px 1fr 100%;

@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.content {
+  padding: 15px;
+
+  h3 {
+    margin: 18px;
+    color: $grey-color;
+  }
+
+  .dialoguesListWrapper {
+    padding-left: 18px;
+    margin: 10px 0;
+
+    img {
+      width: 60px;
+      height: auto;
+    }
+
+    p {
+      padding-left: 15px;
+      color: $grey-color;
+    }
+  }
+
+  .dialoguesWrapper {
+    border-right: $grey-color 2px solid;
+    width: 230px;
+  }
+}

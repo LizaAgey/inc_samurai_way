@@ -1,12 +1,13 @@
 import React from 'react';
+import styles from "./Navigation.module.scss"
 import 'macro-css'
-// import styles from "./Header.module.scss"
 
 // type for data which is inserted into <a> in navigation
 type NavLinkType = {
+    id: number;
     link: string;
     navTitle: string;
-    className: string
+    linkIcon: string
 }
 
 //type for props
@@ -18,18 +19,25 @@ let mainNavigation: Array<JSX.Element> = []
 
 const Navigation: React.FC<NavigationType> = (props) => {
 
-    //loop array with data for main navigation links into <a>
-    // push each <a> to new array to render it below
-    props.mainNavLinks.forEach(value => {
-        mainNavigation.push(<a href={value.link} className={value.className}>{value.navTitle} </a>)
-    })
+        const getNavLinkList = (navItem: NavLinkType) => {
+            return (
+                <div key={navItem.id} className={styles.navItem}>
+                    <img src={navItem.linkIcon} alt="icon" className={styles.icon}/>
+                    <a href={navItem.link}>{navItem.navTitle} </a>
+                </div>
+            )
+        };
 
-    return (
-        <nav className="navigation m-20 p-15 d-flex flex-column">
-            {mainNavigation}
-        </nav>
-    );
-};
+        mainNavigation = props.mainNavLinks.map(getNavLinkList)
+
+        return (
+            <nav className={`${styles.navigation}  m-20 p-15 d-flex flex-column`}>
+                <h3 className={styles.menuTitle}>MENU</h3>
+                {mainNavigation}
+            </nav>
+        );
+    }
+;
 
 export default Navigation;
 

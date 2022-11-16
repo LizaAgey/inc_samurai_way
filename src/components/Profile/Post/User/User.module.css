@@ -5,10 +5,10 @@ a {
 
 .appWrapper {
   background-color: #FAFAF9;
-  max-width: 900px;
+  width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header" "navigation content";
+  grid-template-areas: "header header " "navigation content ";
   grid-template-rows: 75px 15fr;
   grid-auto-columns: 1fr 2fr;
 }
@@ -17,6 +17,12 @@ a {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.content {
+  grid-area: content;
+  grid-column-start: 2;
+  grid-column-end: 5;
 }
 
 .imgBackground {

@@ -2,4 +2,34 @@
 
 .navigation {
   grid-area: navigation;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.menuTitle, .navItem {
+  color: $grey-color;
+  font-weight: bold;
+}
+
+.menuTitle {
+  padding-left: 10px;
+}
+
+.navItem {
+  padding: 5px 10px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $light-green-color;
+    margin-left: -10px;
+    margin-right: -10px;
+    color: $dark-color;
+  }
+
+}
+
+img {
+  margin-right: 7px;
+  width: 15px;
+  height: auto;
 }

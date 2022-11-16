@@ -3,6 +3,8 @@
 .header {
   background-color: $middle-green-color;
   grid-area: header;
+  grid-column-start: 1;
+  grid-column-end: 5;
 
   img {
     width: 50px;

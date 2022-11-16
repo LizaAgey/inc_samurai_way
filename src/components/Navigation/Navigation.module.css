@@ -5,10 +5,10 @@ a {
 
 .appWrapper {
   background-color: #FAFAF9;
-  max-width: 900px;
+  width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header" "navigation content";
+  grid-template-areas: "header header " "navigation content ";
   grid-template-rows: 75px 15fr;
   grid-auto-columns: 1fr 2fr;
 }
@@ -19,8 +19,42 @@ a {
   overflow: hidden;
 }
 
+.content {
+  grid-area: content;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
 .navigation {
   grid-area: navigation;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.menuTitle, .navItem {
+  color: rgba(94, 96, 95, 0.74);
+  font-weight: bold;
+}
+
+.menuTitle {
+  padding-left: 10px;
+}
+
+.navItem {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.navItem:hover {
+  background-color: rgba(158, 176, 142, 0.44);
+  margin-left: -10px;
+  margin-right: -10px;
+  color: #171D1F;
+}
+
+img {
+  margin-right: 7px;
+  width: 15px;
+  height: auto;
 }
 
 /*# sourceMappingURL=Navigation.module.css.map */
