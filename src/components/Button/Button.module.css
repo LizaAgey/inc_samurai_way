@@ -27,7 +27,7 @@ a {
 
 .button {
   all: unset;
-  margin: 20px 80% 0;
+  margin: 20px 50px;
   box-sizing: border-box;
   border-radius: 8px;
   height: 30px;

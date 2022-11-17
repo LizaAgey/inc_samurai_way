@@ -2,7 +2,7 @@ import React from 'react';
 import 'macro-css'
 import styles from "./Profile.module.scss"
 import Post from "./Post/Post";
-import User from "./Post/User/User";
+import User from "./User/User";
 
 //TODO: --------------------"ANY" is the component type !!!
 type ProfileType = any

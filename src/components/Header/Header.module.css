@@ -34,5 +34,8 @@ a {
 .header img {
   width: 50px;
 }
+.header h3 {
+  color: #f3f3f3;
+}
 
 /*# sourceMappingURL=Header.module.css.map */

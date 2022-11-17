@@ -3,12 +3,18 @@
 .content {
   padding: 15px;
 
+  .dialoguesListWrapper {
+    border-right: $grey-color 2px solid;
+    width: 230px;
+    min-height: 70vh;
+  }
+
   h3 {
     margin: 18px;
     color: $grey-color;
   }
 
-  .dialoguesListWrapper {
+  .dialogWrapper {
     padding-left: 18px;
     margin: 10px 0;
 
@@ -20,11 +26,17 @@
     p {
       padding-left: 15px;
       color: $grey-color;
+      &.active {
+        color: $dark-color;
+      }
+
+    }
+
+    &:hover {
+      background-color: $super-light-green-color;
+      cursor: pointer;
+      border-radius: 15px;
     }
   }
 
-  .dialoguesWrapper {
-    border-right: $grey-color 2px solid;
-    width: 230px;
-  }
 }

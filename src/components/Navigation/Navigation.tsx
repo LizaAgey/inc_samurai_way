@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./Navigation.module.scss"
 import 'macro-css'
+import {NavLink} from "react-router-dom";
 
 // type for data which is inserted into <a> in navigation
 type NavLinkType = {
@@ -23,7 +24,7 @@ const Navigation: React.FC<NavigationType> = (props) => {
             return (
                 <div key={navItem.id} className={styles.navItem}>
                     <img src={navItem.linkIcon} alt="icon" className={styles.icon}/>
-                    <a href={navItem.link}>{navItem.navTitle} </a>
+                    <NavLink to={navItem.link} activeClassName={styles.active}>{navItem.navTitle} </NavLink>
                 </div>
             )
         };

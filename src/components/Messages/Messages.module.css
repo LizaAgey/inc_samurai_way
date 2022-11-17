@@ -28,25 +28,34 @@ a {
 .content {
   padding: 15px;
 }
+.content .dialoguesListWrapper {
+  border-right: rgba(94, 96, 95, 0.74) 2px solid;
+  width: 230px;
+  min-height: 70vh;
+}
 .content h3 {
   margin: 18px;
   color: rgba(94, 96, 95, 0.74);
 }
-.content .dialoguesListWrapper {
+.content .dialogWrapper {
   padding-left: 18px;
   margin: 10px 0;
 }
-.content .dialoguesListWrapper img {
+.content .dialogWrapper img {
   width: 60px;
   height: auto;
 }
-.content .dialoguesListWrapper p {
+.content .dialogWrapper p {
   padding-left: 15px;
   color: rgba(94, 96, 95, 0.74);
 }
-.content .dialoguesWrapper {
-  border-right: rgba(94, 96, 95, 0.74) 2px solid;
-  width: 230px;
+.content .dialogWrapper p.active {
+  color: #171D1F;
+}
+.content .dialogWrapper:hover {
+  background-color: rgba(158, 176, 142, 0.1);
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=Messages.module.css.map */
