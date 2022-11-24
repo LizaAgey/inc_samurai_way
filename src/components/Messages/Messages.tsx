@@ -2,51 +2,52 @@ import React from 'react';
 import 'macro-css'
 import styles from "./Messages.module.scss"
 import {NavLink} from "react-router-dom";
+import {v1} from 'uuid';
 
 type DialogueType = {
-    id: number
+    id: string
     avatarLink: string
     friendName: string
 }
-
 type MessagesInfoType = {
     friendsInfo: Array<DialogueType>
 }
-
-let dialoguesList: Array<JSX.Element> = []
-
 type MessageInfoType = {
     avatarLink:string,
     userName:string,
     time:string,
     text:string,
+    id: string
 }
 
 
-const Message: React.FC<MessageInfoType> = (props) => {
+let messagesData: Array<MessageInfoType> = [
+    {id: v1(), text: "text1", time:"time1", userName: "sender1", avatarLink:"./img/friends/1.png"},
+    {id: v1(), text: "text2", time:"time2", userName: "sender2", avatarLink:"./img/friends/2.png"},
+    {id: v1(), text: "text3", time:"time3", userName: "sender3", avatarLink:"./img/friends/3.png"},
+    {id: v1(), text: "text4", time:"time4", userName: "sender4", avatarLink:"./img/friends/4.png"}
+]
+let messageList = messagesData.map((message) => {
  return (
      <div>
-         <img src={props.avatarLink} alt="user avatar"/>
-         <p>{props.time}</p>
-         <p>{props.userName}</p>
-         <p>{props.text}</p>
+         <img src={message.avatarLink} alt="user avatar"/>
+         <p>{message.time}</p>
+         <p>{message.userName}</p>
+         <p>{message.text}</p>
      </div>
- );
-};
+ )})
 
 
 const Messages: React.FC<MessagesInfoType> = (props) => {
 
-    const getDialoguesList = (dialogue: DialogueType) => {
+    let dialoguesList = props.friendsInfo.map((dialogue)=> {
         return (
             <NavLink to={`/messages/${dialogue.id}`} className={`${styles.dialogWrapper} d-flex`}>
                 <img src={dialogue.avatarLink} alt="friendAvatar"/>
                 <p>{dialogue.friendName}</p>
             </NavLink>
         )
-    };
-
-    dialoguesList = props.friendsInfo.map(getDialoguesList)
+    })
 
 
     return (
@@ -57,13 +58,7 @@ const Messages: React.FC<MessagesInfoType> = (props) => {
             </div>
 
             <div className="chatWrapper">
-                <Message
-                    avatarLink ={"../img/friends/1.png"}
-                userName ={"Bob"}
-                time={"12:00"}
-                text={"Hello, Billy"}
-                />
-
+                {messageList}
             </div>
 
         </div>

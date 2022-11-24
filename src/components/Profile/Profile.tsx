@@ -1,8 +1,8 @@
 import React from 'react';
 import 'macro-css'
 import styles from "./Profile.module.scss"
-import Post from "./Post/Post";
-import User from "./User/User";
+import PostsArea from "./PostsArea/PostsArea";
+import UserInfo from "./UserInfo/UserInfo";
 
 //TODO: --------------------"ANY" is the component type !!!
 type ProfileType = any
@@ -10,7 +10,7 @@ type ProfileType = any
 const Profile: React.FC<ProfileType> = (props) => {
     return (
         <div className={`${styles.content} m-20`}>
-            <User
+            <UserInfo
                 avatar={"./img/avatar.jpg"}
                 name={"Billy Way"}
                 bday={"2 January"}
@@ -18,7 +18,7 @@ const Profile: React.FC<ProfileType> = (props) => {
                 education={"The Harvard university"}
                 media={"@BillyWay"}
             />
-            <Post/>
+            <PostsArea/>
         </div>
     );
 };

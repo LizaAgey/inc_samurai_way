@@ -1,44 +1,32 @@
 import React from 'react';
-import styles from "./Navigation.module.scss"
+import styles from './Navigation.module.scss'
 import 'macro-css'
-import {NavLink} from "react-router-dom";
+import {NavLinkType} from '../../App';
+import NavigationElement from './NavigationElement';
 
-// type for data which is inserted into <a> in navigation
-type NavLinkType = {
-    id: number;
-    link: string;
-    navTitle: string;
-    linkIcon: string
-}
-
-//type for props
 type NavigationType = {
-    mainNavLinks: Array<NavLinkType>;
+    mainNavLinksData: Array<NavLinkType>
 }
-
-let mainNavigation: Array<JSX.Element> = []
 
 const Navigation: React.FC<NavigationType> = (props) => {
-
-        const getNavLinkList = (navItem: NavLinkType) => {
-            return (
-                <div key={navItem.id} className={styles.navItem}>
-                    <img src={navItem.linkIcon} alt="icon" className={styles.icon}/>
-                    <NavLink to={navItem.link} activeClassName={styles.active}>{navItem.navTitle} </NavLink>
-                </div>
-            )
-        };
-
-        mainNavigation = props.mainNavLinks.map(getNavLinkList)
-
+    const navigationElementsList = props.mainNavLinksData.map((navLink) => {
         return (
-            <nav className={`${styles.navigation}  m-20 p-15 d-flex flex-column`}>
-                <h3 className={styles.menuTitle}>MENU</h3>
-                {mainNavigation}
-            </nav>
-        );
-    }
-;
+            <NavigationElement
+                id={navLink.id}
+                link={navLink.link}
+                navTitle={navLink.navTitle}
+                linkIcon={navLink.linkIcon}
+            />
+        )
+    })
 
-export default Navigation;
+    return (
+        <nav className={`${styles.navigation}  m-20 p-15 d-flex flex-column`}>
+            <h3 className={styles.menuTitle}>MENU</h3>
+            {navigationElementsList}
+        </nav>
 
+    )
+};
+
+export default Navigation

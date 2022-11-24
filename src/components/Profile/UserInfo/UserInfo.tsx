@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./User.module.scss";
+import styles from "./UserInfo.module.scss";
 
 type UserType = {
     avatar: string,
@@ -10,7 +10,7 @@ type UserType = {
     media: string
 }
 
-const User: React.FC<UserType> = (props) => {
+const UserInfo: React.FC<UserType> = (props) => {
     return (
         <>
             <div className={styles.imgBackground}></div>
@@ -31,4 +31,4 @@ const User: React.FC<UserType> = (props) => {
     );
 };
 
-export default User;
+export default UserInfo;
