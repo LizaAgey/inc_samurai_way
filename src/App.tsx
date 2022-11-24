@@ -4,7 +4,7 @@ import 'macro-css'
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
-import Messages from './components/Messages/Messages';
+import Dialogues from './components/Dialogues/Dialogues';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {v1} from 'uuid';
 
@@ -17,7 +17,7 @@ export type NavLinkType = {
 
 const mainNavLinksData: Array<NavLinkType> = [
     {id: v1(), link: '/profile', navTitle: 'Profile', linkIcon: './img/profile.ico'},
-    {id: v1(), link: '/messages', navTitle: 'Messages', linkIcon: './img/messages.ico'},
+    {id: v1(), link: '/messages', navTitle: 'Dialogues', linkIcon: './img/messages.ico'},
     {id: v1(), link: '/news', navTitle: 'News', linkIcon: './img/news.ico'},
     {id: v1(), link: '/music', navTitle: 'Music', linkIcon: './img/music.ico'},
     {id: v1(), link: '/settings', navTitle: 'Settings', linkIcon: './img/settings.ico'}
@@ -32,7 +32,7 @@ function App() {
                     headerTitle={'Social Network'}/>
 
                 <Route path="/profile" component={Profile}/>
-                <Route path="/messages" render={() => <Messages
+                <Route path="/messages" render={() => <Dialogues
                     friendsInfo={[
                         {id: v1(), avatarLink: './img/friends/1.png', friendName: 'Alex Key'},
                         {id: v1(), avatarLink: './img/friends/2.png', friendName: 'Martin Bin'},
