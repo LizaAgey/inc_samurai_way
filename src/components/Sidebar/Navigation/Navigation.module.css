@@ -8,12 +8,12 @@ a {
   width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header " "navigation content ";
+  grid-template-areas: "header header " "sidebar content ";
   grid-template-rows: 75px 15fr;
-  grid-auto-columns: 1fr 2fr;
+  grid-auto-columns: 2fr 2fr;
 }
 
-.navigation, .content {
+.sidebar, .content {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
   overflow: hidden;
@@ -25,24 +25,12 @@ a {
   grid-column-end: 5;
 }
 
-.navigation {
-  grid-area: navigation;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.menuTitle, .navItem {
-  color: rgba(94, 96, 95, 0.74);
-  font-weight: bold;
-}
-
-.menuTitle {
-  padding-left: 10px;
-}
-
 .navItem {
   padding: 5px 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
+  color: rgba(94, 96, 95, 0.74);
+  font-weight: bold;
 }
 .navItem:hover {
   background-color: rgba(158, 176, 142, 0.44);
@@ -59,6 +47,7 @@ img {
 
 a.active {
   color: #171D1F;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=Navigation.module.css.map */

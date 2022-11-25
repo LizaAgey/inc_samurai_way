@@ -5,11 +5,6 @@ import App from './App';
 import {state} from './redux/state';
 
 ReactDOM.render(<App
-        navigationElements={state.navigationElements}
-        dialogues={state.dialogues}
-        messages={state.messages}
-        header={state.header}
-        users={state.users}
-        postCards={state.postCards}
+        state={state}
     />, document.getElementById('root')
 );

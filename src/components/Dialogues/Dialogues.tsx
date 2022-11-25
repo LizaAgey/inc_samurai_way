@@ -7,12 +7,14 @@ import {DialogueType, MessageType} from '../../redux/state';
 
 
 type DialoguesPropsType = {
-    dialogues: Array<DialogueType>
-    messages: Array<MessageType>
+    state: {
+        dialogues: Array<DialogueType>
+        messages: Array<MessageType>
+    }
 }
 
 const Dialogues = (props: DialoguesPropsType) => {
-    let messageList = props.messages.map((message) => {
+    let messageList = props.state.messages.map((message) => {
         return (
             <Message
                 avatarLink={message.avatarLink}
@@ -20,11 +22,12 @@ const Dialogues = (props: DialoguesPropsType) => {
                 time={message.time}
                 text={message.text}
                 id={message.id}
+                isOwnMessage={message.isOwnMessage}
             />
         )
     })
 
-    let dialoguesList = props.dialogues.map((dialogue) => {
+    let dialoguesList = props.state.dialogues.map((dialogue) => {
         return (
             <DialogueElement
                 id={dialogue.id}
@@ -37,12 +40,17 @@ const Dialogues = (props: DialoguesPropsType) => {
     return (
         <div className={`${styles.content} d-flex m-20`}>
             <div className={styles.dialoguesListWrapper}>
+
                 <h3>Messages</h3>
                 {dialoguesList}
             </div>
 
-            <div className="chatWrapper">
-                {messageList}
+            <div>
+                <div className={styles.chatBackground}></div>
+                <div className={styles.messagesWrapper}>
+
+                    {messageList}
+                </div>
             </div>
 
         </div>

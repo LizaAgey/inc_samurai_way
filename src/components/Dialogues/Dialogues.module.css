@@ -8,12 +8,12 @@ a {
   width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header " "navigation content ";
+  grid-template-areas: "header header " "sidebar content ";
   grid-template-rows: 75px 15fr;
-  grid-auto-columns: 1fr 2fr;
+  grid-auto-columns: 2fr 2fr;
 }
 
-.navigation, .content {
+.sidebar, .content {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
   overflow: hidden;
@@ -34,19 +34,20 @@ a {
   min-height: 70vh;
 }
 .content h3 {
-  margin: 18px;
+  margin: 20px;
   color: rgba(94, 96, 95, 0.74);
 }
 .content .dialogWrapper {
-  padding-left: 18px;
-  margin: 10px 0;
+  align-items: center;
+  margin: 10px 10px 10px 0;
 }
 .content .dialogWrapper img {
-  width: 60px;
-  height: auto;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
 }
 .content .dialogWrapper p {
-  padding-left: 15px;
+  padding-left: 5px;
   color: rgba(94, 96, 95, 0.74);
 }
 .content .dialogWrapper p.active {
@@ -56,6 +57,21 @@ a {
   background-color: rgba(158, 176, 142, 0.1);
   cursor: pointer;
   border-radius: 15px;
+}
+.content .messagesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 70px 30px 0 40px;
+  padding: 30px;
+  background-color: #FBFFF7;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.content .chatBackground {
+  background-color: red;
+  width: 10px;
+  height: 20px;
 }
 
 /*# sourceMappingURL=Dialogues.module.css.map */

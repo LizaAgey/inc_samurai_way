@@ -1,15 +1,14 @@
 import React from 'react';
-import styles from './Navigation.module.scss'
 import 'macro-css'
-import {NavigationElementType} from '../../redux/state';
+import {NavigationElementType} from '../../../redux/state';
 import NavigationElement from './NavigationElement';
 
 type NavigationPropsType = {
     navigationElements: Array<NavigationElementType>
 }
 
-const Navigation= (props: NavigationPropsType) => {
-    const navigationElementsList = props.navigationElements.map((navLink) => {
+const Navigation = (props: NavigationPropsType) => {
+    let navigationList = props.navigationElements.map((navLink) => {
         return (
             <NavigationElement
                 id={navLink.id}
@@ -20,13 +19,8 @@ const Navigation= (props: NavigationPropsType) => {
         )
     })
 
-    return (
-        <nav className={`${styles.navigation}  m-20 p-15 d-flex flex-column`}>
-            <h3 className={styles.menuTitle}>MENU</h3>
-            {navigationElementsList}
-        </nav>
+    return <>{navigationList}</>
 
-    )
 };
 
 export default Navigation

@@ -1,0 +1,28 @@
+@import "../../App.scss";
+
+.sidebar {
+  grid-area: sidebar;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 20px 0px 20px 20px;
+}
+
+.sidebarElement {
+  margin: 15px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuTitle {
+  color: $grey-color;
+  font-weight: bold;
+}
+
+.menuTitle {
+  padding-left: 10px;
+}
+
+hr {
+  border: $light-grey-color solid 1px;
+  background-color: $light-grey-color;
+}

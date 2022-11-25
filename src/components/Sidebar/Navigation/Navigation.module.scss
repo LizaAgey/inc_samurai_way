@@ -1,23 +1,11 @@
-@import "../../App.scss";
-
-.navigation {
-  grid-area: navigation;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.menuTitle, .navItem {
-  color: $grey-color;
-  font-weight: bold;
-}
-
-.menuTitle {
-  padding-left: 10px;
-}
+@import "../../../App.scss";
 
 .navItem {
   padding: 5px 10px;
+  margin-bottom: 10px;
   border-radius: 10px;
+  color: $grey-color;
+  font-weight: bold;
 
   &:hover {
     background-color: $light-green-color;
@@ -36,4 +24,5 @@ img {
 
 a.active {
   color: $dark-color;
+  font-weight: bold;
 }

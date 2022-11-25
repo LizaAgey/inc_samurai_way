@@ -25,22 +25,31 @@ a {
   grid-column-end: 5;
 }
 
-.postsArea {
-  grid-area: postsArea;
-}
-.postsArea h3 {
-  text-align: center;
+.sidebar {
+  grid-area: sidebar;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 20px 0px 20px 20px;
 }
 
-textarea {
-  all: unset;
-  text-overflow: ellipsis;
-  width: 845px;
-  min-height: 50px;
-  align-self: center;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  border-radius: 15px;
+.sidebarElement {
+  margin: 15px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuTitle {
+  color: rgba(94, 96, 95, 0.74);
+  font-weight: bold;
+}
+
+.menuTitle {
+  padding-left: 10px;
+}
+
+hr {
+  border: #f1f0f0 solid 1px;
   background-color: #f1f0f0;
 }
 
-/*# sourceMappingURL=PostsArea.module.css.map */
+/*# sourceMappingURL=Sidebar.module.css.map */

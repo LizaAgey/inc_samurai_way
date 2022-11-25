@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './Navigation.module.scss'
 import 'macro-css'
 import {NavLink} from 'react-router-dom';
-import {NavigationElementType} from '../../redux/state';
-
+import {NavigationElementType} from '../../../redux/state';
 
 const NavigationElement: React.FC<NavigationElementType> = (props) => {
     return (

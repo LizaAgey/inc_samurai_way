@@ -10,22 +10,25 @@
   }
 
   h3 {
-    margin: 18px;
+    margin: 20px;
     color: $grey-color;
   }
 
   .dialogWrapper {
-    padding-left: 18px;
-    margin: 10px 0;
+    align-items: center;
+    margin: 10px 10px 10px 0;
+
 
     img {
-      width: 60px;
-      height: auto;
+      width: 40px;
+      height: 40px;
+      margin: 0 10px;
     }
 
     p {
-      padding-left: 15px;
+      padding-left: 5px;
       color: $grey-color;
+
       &.active {
         color: $dark-color;
       }
@@ -37,6 +40,24 @@
       cursor: pointer;
       border-radius: 15px;
     }
+  }
+
+  .messagesWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 70px 30px 0 40px;
+    padding: 30px;
+
+    background-color: $chat-bright-green;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .chatBackground {
+    background-color: red;
+    width: 10px;
+    height: 20px;
   }
 
 }

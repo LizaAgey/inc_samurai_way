@@ -8,12 +8,12 @@ a {
   width: 1200px;
   margin: 40px auto;
   display: grid;
-  grid-template-areas: "header header " "navigation content ";
+  grid-template-areas: "header header " "sidebar content ";
   grid-template-rows: 75px 15fr;
-  grid-auto-columns: 1fr 2fr;
+  grid-auto-columns: 2fr 2fr;
 }
 
-.navigation, .content {
+.sidebar, .content {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
   overflow: hidden;
@@ -37,7 +37,7 @@ a {
 .postCard p {
   width: 100%;
   min-height: 50px;
-  background-color: #f3f3f3;
+  background-color: #f1f0f0;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   border-radius: 15px;
   padding: 15px;

@@ -5,10 +5,12 @@ $dark-green-color: #486230;
 $middle-green-color: #9eb08e;
 $light-green-color: rgba(158, 176, 142, 0.44);
 $super-light-green-color: rgba(158, 176, 142, 0.1);
-$light-grey-color: #f3f3f3;
+$light-grey-color: #f1f0f0;
 $dark-color: #171D1F;
 $grey-color: rgba(94, 96, 95, 0.74);
 $brown-color: #8A846C;
+$chat-bright-green: #FBFFF7;
+$chat-message-green: #D8E2CF;
 
 //GENERAL STYLES:
 
@@ -26,13 +28,13 @@ a {
 
   grid-template-areas:
   "header header "
-  "navigation content ";
+  "sidebar content ";
 
   grid-template-rows: 75px 15fr;
-  grid-auto-columns: 1fr 2fr;
+  grid-auto-columns: 2fr 2fr;
 }
 
-.navigation, .content {
+.sidebar, .content {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
   overflow: hidden;
