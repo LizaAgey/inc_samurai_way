@@ -6,7 +6,7 @@ a {
 .appWrapper {
   background-color: #FAFAF9;
   width: 1200px;
-  margin: 40px auto;
+  margin: 0px auto;
   display: grid;
   grid-template-areas: "header header " "sidebar content ";
   grid-template-rows: 75px 15fr;
@@ -34,7 +34,7 @@ a {
   width: 60px;
   cursor: pointer;
   opacity: 0.8;
-  background-color: #486230;
+  background-color: #808f74;
   color: #FAFAF9;
   text-align: center;
   text-justify: auto;

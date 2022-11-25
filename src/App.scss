@@ -1,8 +1,8 @@
 //variables
 
 $light-color: #FAFAF9;
-$dark-green-color: #486230;
-$middle-green-color: #9eb08e;
+$dark-green-color: #808f74;
+$middle-green-color: rgba(158, 176, 142, 0.87);
 $light-green-color: rgba(158, 176, 142, 0.44);
 $super-light-green-color: rgba(158, 176, 142, 0.1);
 $light-grey-color: #f1f0f0;
@@ -22,7 +22,7 @@ a {
 .appWrapper {
   background-color: $light-color;
   width: 1200px;
-  margin: 40px auto;
+  margin: 0px auto;
 
   display: grid;
 

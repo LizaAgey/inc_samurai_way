@@ -16,12 +16,12 @@
     border-radius: 100%;
   }
 
-  }
+}
 
 .ownMessage {
   flex-direction: row-reverse;
   margin-left: 25%;
-  background-color:white;
+  background-color: white;
   position: relative;
   border: $chat-message-green solid 2px;
 
@@ -34,13 +34,13 @@
     right: -8px;
     height: 20px;
     width: 20px;
-    background-color:white;
+    background-color: white;
     border-bottom-left-radius: 15px;
-    border-right:yellow solid 2px;
-    border-bottom:$chat-message-green solid 2px;
+    border-right: yellow solid 2px;
+    border-bottom: $chat-message-green solid 2px;
   }
 
-  &:after{
+  &:after {
     content: "";
     position: absolute;
     z-index: 1;
@@ -52,13 +52,13 @@
     border-bottom-left-radius: 10px;
     //border-top: red solid 2px;
     //border-right:yellow solid 2px;
-    border-bottom:$chat-message-green solid 2px;
-    border-left:$chat-message-green solid 2px;
+    border-bottom: $chat-message-green solid 2px;
+    border-left: $chat-message-green solid 2px;
   }
 }
 
 .friendMessage {
-  margin-right:  25%;
+  margin-right: 25%;
   background-color: $chat-message-green;
   position: relative;
 
@@ -73,6 +73,7 @@
     background: $chat-message-green;
     border-bottom-right-radius: 15px;
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -84,5 +85,14 @@
     background: white;
     border-bottom-right-radius: 10px;
   }
+}
+
+p {
+  margin: 0;
+}
+
+.timeSenderWrapper {
+  display: flex;
+  margin: 10px;
 }
 

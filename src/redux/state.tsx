@@ -102,12 +102,12 @@ export const state: StateType = {
             {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}
         ],
         messages: [
-            {id: v1(), text: 'text1', time: 'time1', userName: 'sender1', avatarLink: './img/friends/1.png', isOwnMessage: false},
-            {id: v1(), text: 'text2', time: 'time2', userName: 'sender2', avatarLink: './img/friends/2.png', isOwnMessage: false},
-            {id: v1(), text: 'text3', time: 'time3', userName: 'sender3', avatarLink: './img/friends/3.png', isOwnMessage: false},
-            {id: v1(), text: 'text4', time: 'time4', userName: 'sender4', avatarLink: './img/friends/4.png', isOwnMessage: false},
-            {id: v1(), text: 'text5', time: 'time5', userName: 'sender5', avatarLink: './img/avatar.jpg', isOwnMessage: true},
-            {id: v1(), text: 'text6', time: 'time6', userName: 'sender6', avatarLink: './img/avatar.jpg', isOwnMessage: true},
+            {id: v1(), text: 'Hello, people! How are you?', time: '12:15', userName: 'Alex Key', avatarLink: './img/friends/1.png', isOwnMessage: false},
+            {id: v1(), text: '"Hey, Alex. I\'m fine"', time: "12:15", userName: 'Martin Bin', avatarLink: './img/friends/2.png', isOwnMessage: false},
+            {id: v1(), text: 'Good evening. Thank yoy for your question. Everything is ok. The weather is perfect. Any news from Jane?', time: '12:15', userName: 'Bob Wall', avatarLink: './img/friends/3.png', isOwnMessage: false},
+            {id: v1(), text: 'Oh, just woke up. Will answer later...', time: '12:15', userName: 'Billy Han', avatarLink: './img/friends/4.png', isOwnMessage: false},
+            {id: v1(), text: 'Hahaha, there is on sleepy guy here', time: '12:15', userName: 'Billy Way', avatarLink: './img/avatar.jpg', isOwnMessage: true},
+            {id: v1(), text: 'I woke up at 7:00 am today :(', time: '12:15', userName: 'Billy Way', avatarLink: './img/avatar.jpg', isOwnMessage: true},
         ]
     },
     sidebarPage: {

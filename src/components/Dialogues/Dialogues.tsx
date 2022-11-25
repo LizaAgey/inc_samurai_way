@@ -4,6 +4,7 @@ import styles from './Dialogues.module.scss'
 import Message from './Message/Message';
 import DialogueElement from './DialogueElement/DialogueElement';
 import {DialogueType, MessageType} from '../../redux/state';
+import Button from '../Button/Button';
 
 
 type DialoguesPropsType = {
@@ -45,11 +46,15 @@ const Dialogues = (props: DialoguesPropsType) => {
                 {dialoguesList}
             </div>
 
-            <div>
-                <div className={styles.chatBackground}></div>
+            <div className={styles.chat}>
+                {/*<div className={styles.chatBackground}></div>*/}
                 <div className={styles.messagesWrapper}>
-
                     {messageList}
+                </div>
+
+                <div className={styles.inputWrapper}>
+                    <input value="this is input" type="text"/>
+                    <Button text={'Send'}/>
                 </div>
             </div>
 

@@ -6,7 +6,7 @@ a {
 .appWrapper {
   background-color: #FAFAF9;
   width: 1200px;
-  margin: 40px auto;
+  margin: 0px auto;
   display: grid;
   grid-template-areas: "header header " "sidebar content ";
   grid-template-rows: 75px 15fr;
@@ -100,6 +100,15 @@ a {
   height: 20px;
   background: white;
   border-bottom-right-radius: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.timeSenderWrapper {
+  display: flex;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=Message.module.css.map */

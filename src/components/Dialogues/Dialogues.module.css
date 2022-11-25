@@ -1,77 +1,17 @@
-a {
-  all: unset;
-  cursor: pointer;
-}
+/* Error: "+" and "-" must be surrounded by whitespace in calculations.
+ *    ,
+ * 59 |       width: calc(100%- 60px);
+ *    |                       ^
+ *    '
+ *   Dialogues.module.scss 59:23  root stylesheet */
 
-.appWrapper {
-  background-color: #FAFAF9;
-  width: 1200px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-areas: "header header " "sidebar content ";
-  grid-template-rows: 75px 15fr;
-  grid-auto-columns: 2fr 2fr;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: "+" and "-" must be surrounded by whitespace in calculations.\a    \2577 \a 59 \2502        width: calc(100%- 60px);\d\a    \2502                        ^\a    \2575 \a   Dialogues.module.scss 59:23  root stylesheet';
 }
-
-.sidebar, .content {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.content {
-  grid-area: content;
-  grid-column-start: 2;
-  grid-column-end: 5;
-}
-
-.content {
-  padding: 15px;
-}
-.content .dialoguesListWrapper {
-  border-right: rgba(94, 96, 95, 0.74) 2px solid;
-  width: 230px;
-  min-height: 70vh;
-}
-.content h3 {
-  margin: 20px;
-  color: rgba(94, 96, 95, 0.74);
-}
-.content .dialogWrapper {
-  align-items: center;
-  margin: 10px 10px 10px 0;
-}
-.content .dialogWrapper img {
-  width: 40px;
-  height: 40px;
-  margin: 0 10px;
-}
-.content .dialogWrapper p {
-  padding-left: 5px;
-  color: rgba(94, 96, 95, 0.74);
-}
-.content .dialogWrapper p.active {
-  color: #171D1F;
-}
-.content .dialogWrapper:hover {
-  background-color: rgba(158, 176, 142, 0.1);
-  cursor: pointer;
-  border-radius: 15px;
-}
-.content .messagesWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 70px 30px 0 40px;
-  padding: 30px;
-  background-color: #FBFFF7;
-  border-radius: 15px;
-  overflow: hidden;
-}
-.content .chatBackground {
-  background-color: red;
-  width: 10px;
-  height: 20px;
-}
-
-/*# sourceMappingURL=Dialogues.module.css.map */
