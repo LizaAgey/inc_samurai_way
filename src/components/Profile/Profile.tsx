@@ -3,7 +3,7 @@ import 'macro-css'
 import styles from "./Profile.module.scss"
 import PostsArea from "./PostsArea/PostsArea";
 import UserInfo from "./UserInfo/UserInfo";
-import {PostCardType, UserType} from '../../index';
+import {PostCardType, UserType} from '../../redux/state';
 
 type ProfilePropsType = {
     users: Array<UserType>

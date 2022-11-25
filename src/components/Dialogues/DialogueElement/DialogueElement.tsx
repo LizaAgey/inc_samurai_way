@@ -2,7 +2,7 @@ import React from 'react';
 import 'macro-css'
 import styles from "./../Dialogues.module.scss"
 import {NavLink} from "react-router-dom";
-import {DialogueType} from '../../../index';
+import {DialogueType} from '../../../redux/state';
 
 const DialogueElement: React.FC<DialogueType> = (props) => {
     return (

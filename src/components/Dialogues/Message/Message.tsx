@@ -1,6 +1,6 @@
 import React from 'react';
 import 'macro-css'
-import {MessageType} from '../../../index';
+import {MessageType} from '../../../redux/state';
 
 const Message: React.FC<MessageType> = (props) => {
     return (

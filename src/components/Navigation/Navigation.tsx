@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Navigation.module.scss'
 import 'macro-css'
-import {NavigationElementType} from '../../index';
+import {NavigationElementType} from '../../redux/state';
 import NavigationElement from './NavigationElement';
 
 type NavigationPropsType = {

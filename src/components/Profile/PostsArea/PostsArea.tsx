@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './PostsArea.module.scss';
 import Button from '../../Button/Button';
 import PostCard from './PostCard/PostCard';
-import {PostCardType} from '../../../index';
+import {PostCardType} from '../../../redux/state';
 
 type PostsAreaPropsType = {
     postCards: Array<PostCardType>

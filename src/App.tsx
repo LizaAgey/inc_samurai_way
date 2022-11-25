@@ -6,7 +6,7 @@ import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
 import Dialogues from './components/Dialogues/Dialogues';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {DialogueType, HeaderType, MessageType, NavigationElementType, PostCardType, UserType} from './index';
+import {DialogueType, HeaderType, MessageType, NavigationElementType, PostCardType, UserType} from './redux/state';
 
 type  AppPropsType = {
     navigationElements: Array<NavigationElementType>

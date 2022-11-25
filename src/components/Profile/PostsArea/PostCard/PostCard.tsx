@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./PostCard.module.scss";
-import {PostCardType} from '../../../../index';
+import {PostCardType} from '../../../../redux/state';
 
 const PostCard: React.FC<PostCardType> = (props) => {
     return (
