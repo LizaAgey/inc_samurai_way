@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './Navigation.module.scss'
 import 'macro-css'
-import {NavLinkType} from '../../App';
+import {NavigationElementType} from '../../index';
 import NavigationElement from './NavigationElement';
 
-type NavigationType = {
-    mainNavLinksData: Array<NavLinkType>
+type NavigationPropsType = {
+    navigationElements: Array<NavigationElementType>
 }
 
-const Navigation: React.FC<NavigationType> = (props) => {
-    const navigationElementsList = props.mainNavLinksData.map((navLink) => {
+const Navigation= (props: NavigationPropsType) => {
+    const navigationElementsList = props.navigationElements.map((navLink) => {
         return (
             <NavigationElement
                 id={navLink.id}

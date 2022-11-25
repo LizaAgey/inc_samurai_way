@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from "./UserInfo.module.scss";
 
-type UserType = {
+type UserInfoPropsType = {
+    id:string,
     avatar: string,
     name: string,
     bday: string,
@@ -10,7 +11,7 @@ type UserType = {
     media: string
 }
 
-const UserInfo: React.FC<UserType> = (props) => {
+const UserInfo= (props:UserInfoPropsType) => {
     return (
         <>
             <div className={styles.imgBackground}></div>
@@ -24,7 +25,6 @@ const UserInfo: React.FC<UserType> = (props) => {
                     <p>City: <span>{props.city}</span></p>
                     <p>Education: <span>{props.education}</span></p>
                     <p>Social media link: <span>{props.media}</span></p>
-
                 </div>
             </div>
         </>

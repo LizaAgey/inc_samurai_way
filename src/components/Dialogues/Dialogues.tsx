@@ -1,49 +1,30 @@
 import React from 'react';
 import 'macro-css'
 import styles from './Dialogues.module.scss'
-import {v1} from 'uuid';
 import Message from './Message/Message';
 import DialogueElement from './DialogueElement/DialogueElement';
+import {DialogueType, MessageType} from '../../index';
 
-export type DialogueType = {
-    id: string
-    avatarLink: string
-    friendName: string
-}
-type DialoguesType = {
-    friendsInfo: Array<DialogueType>
-}
-type MessageDataType = {
-    avatarLink: string,
-    userName: string,
-    time: string,
-    text: string,
-    id: string
+
+type DialoguesPropsType = {
+    dialogues: Array<DialogueType>
+    messages: Array<MessageType>
 }
 
+const Dialogues = (props: DialoguesPropsType) => {
+    let messageList = props.messages.map((message) => {
+        return (
+            <Message
+                avatarLink={message.avatarLink}
+                userName={message.userName}
+                time={message.time}
+                text={message.text}
+                id={message.id}
+            />
+        )
+    })
 
-let messagesData: Array<MessageDataType> = [
-    {id: v1(), text: 'text1', time: 'time1', userName: 'sender1', avatarLink: './img/friends/1.png'},
-    {id: v1(), text: 'text2', time: 'time2', userName: 'sender2', avatarLink: './img/friends/2.png'},
-    {id: v1(), text: 'text3', time: 'time3', userName: 'sender3', avatarLink: './img/friends/3.png'},
-    {id: v1(), text: 'text4', time: 'time4', userName: 'sender4', avatarLink: './img/friends/4.png'}
-]
-let messageList = messagesData.map((message) => {
-    return (
-        <Message
-            avatarLink={message.avatarLink}
-            userName={message.userName}
-            time={message.time}
-            text={message.text}
-            id={message.id}
-        />
-    )
-})
-
-
-const Dialogues: React.FC<DialoguesType> = (props) => {
-
-    let dialoguesList = props.friendsInfo.map((dialogue) => {
+    let dialoguesList = props.dialogues.map((dialogue) => {
         return (
             <DialogueElement
                 id={dialogue.id}

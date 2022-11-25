@@ -1,13 +1,6 @@
 import React from 'react';
 import styles from "./PostCard.module.scss";
-
-type PostCardType = {
-    id: string,
-    postText: string,
-    avatarLink: string,
-    isLiked: boolean,
-    likesNumber: number
-}
+import {PostCardType} from '../../../../index';
 
 const PostCard: React.FC<PostCardType> = (props) => {
     return (

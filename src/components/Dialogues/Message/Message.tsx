@@ -1,13 +1,6 @@
 import React from 'react';
 import 'macro-css'
-
-type MessageType = {
-    avatarLink:string,
-    userName:string,
-    time:string,
-    text:string,
-    id: string
-}
+import {MessageType} from '../../../index';
 
 const Message: React.FC<MessageType> = (props) => {
     return (

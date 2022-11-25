@@ -6,43 +6,37 @@ import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
 import Dialogues from './components/Dialogues/Dialogues';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {v1} from 'uuid';
+import {DialogueType, HeaderType, MessageType, NavigationElementType, PostCardType, UserType} from './index';
 
-export type NavLinkType = {
-    id: string;
-    link: string;
-    navTitle: string;
-    linkIcon: string
+type  AppPropsType = {
+    navigationElements: Array<NavigationElementType>
+    dialogues: Array<DialogueType>
+    messages: Array<MessageType>
+    header: HeaderType
+    users: Array<UserType>
+    postCards: Array<PostCardType>
 }
 
-const mainNavLinksData: Array<NavLinkType> = [
-    {id: v1(), link: '/profile', navTitle: 'Profile', linkIcon: './img/profile.ico'},
-    {id: v1(), link: '/messages', navTitle: 'Dialogues', linkIcon: './img/messages.ico'},
-    {id: v1(), link: '/news', navTitle: 'News', linkIcon: './img/news.ico'},
-    {id: v1(), link: '/music', navTitle: 'Music', linkIcon: './img/music.ico'},
-    {id: v1(), link: '/settings', navTitle: 'Settings', linkIcon: './img/settings.ico'}
-]
-
-function App() {
+const App = (props: AppPropsType) => {
     return (
         <BrowserRouter>
             <div className={'appWrapper'}>
-                <Header
-                    src={'./social_network_logo.ico'}
-                    headerTitle={'Social Network'}/>
+                <Header header={props.header}/>
 
-                <Route path="/profile" component={Profile}/>
-                <Route path="/messages" render={() => <Dialogues
-                    friendsInfo={[
-                        {id: v1(), avatarLink: './img/friends/1.png', friendName: 'Alex Key'},
-                        {id: v1(), avatarLink: './img/friends/2.png', friendName: 'Martin Bin'},
-                        {id: v1(), avatarLink: './img/friends/3.png', friendName: 'Bob Wall'},
-                        {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}
-                    ]}
+                <Route path="/profile" render={() =>
+                    <Profile
+                        users={props.users}
+                        postCards={props.postCards}
+                    />}/>
+
+                <Route path="/messages" render={() =>
+                    <Dialogues
+                    dialogues={props.dialogues}
+                    messages={props.messages}
                 />}/>
 
                 <Navigation
-                    mainNavLinksData={mainNavLinksData}
+                    navigationElements={props.navigationElements}
                 />
 
             </div>
