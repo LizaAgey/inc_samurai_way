@@ -10,6 +10,7 @@ type ProfilePropsType = {
         users: Array<UserType>
         postCards: Array<PostCardType>
     }
+    addPost: (postText: string)=>void
 }
 
 const Profile = (props: ProfilePropsType) => {
@@ -26,6 +27,7 @@ const Profile = (props: ProfilePropsType) => {
             />
             <PostsArea
                 postCards={props.state.postCards}
+                addPost={props.addPost}
             />
         </div>
     );

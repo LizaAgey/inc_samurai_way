@@ -3,11 +3,16 @@ import styles from "./Button.module.scss"
 
 type ButtonType = {
     text: string
+    onClickCallback: () => void
 }
 
 const Button: React.FC<ButtonType> = (props) => {
+    const onClickHandler = () => {
+     props.onClickCallback()
+    };
+
     return (
-        <button className={styles.button}>{props.text}</button>
+        <button className={styles.button} onClick={onClickHandler}>{props.text}</button>
     );
 };
 

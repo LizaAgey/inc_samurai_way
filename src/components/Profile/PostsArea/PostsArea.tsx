@@ -6,11 +6,12 @@ import {PostCardType} from '../../../redux/state';
 
 type PostsAreaPropsType = {
     postCards: Array<PostCardType>
+    addPost: (postText: string) => void
 }
 
-const PostsArea= (props: PostsAreaPropsType) => {
-    const getPostCardsList =  props.postCards.map((postCard) => {
-        return  (
+const PostsArea = (props: PostsAreaPropsType) => {
+    const getPostCardsList = props.postCards.map((postCard) => {
+        return (
             <PostCard
                 id={postCard.id}
                 postText={postCard.postText}
@@ -20,6 +21,14 @@ const PostsArea= (props: PostsAreaPropsType) => {
             />
         )
     })
+    let newPostCard = React.createRef<HTMLTextAreaElement>()
+    const addPost = () => {
+        debugger
+        let postText = newPostCard.current?.value
+        postText && props.addPost(postText)
+        if(newPostCard.current) {  newPostCard.current.value= ""}
+    };
+
 
     return (
         <div className={`${styles.postsArea} d-flex flex-column`}>
@@ -27,10 +36,11 @@ const PostsArea= (props: PostsAreaPropsType) => {
                 <label htmlFor="posts">My posts</label>
             </h3>
 
-            <textarea className="p-10" id="posts" placeholder="Share your news..." rows={1} cols={5}/>
-            <Button text={'Send'}/>
-
-            {getPostCardsList}
+            <textarea ref={newPostCard} className="p-10" id="posts" placeholder="Share your news..." rows={1} cols={5}/>
+            <Button text={'Add post'} onClickCallback={addPost}/>
+            <div className={styles.postsList}>
+                {getPostCardsList}
+            </div>
         </div>
     );
 };

@@ -2,12 +2,13 @@
 
 .imgBackground {
   grid-area: imgBackground;
-  background: linear-gradient(90deg, rgba(229,140,138,1) 35%, rgba(238,192,198,1) 100%);
+  background: linear-gradient(90deg, rgba(229, 140, 138, 1) 35%, rgba(238, 192, 198, 1) 100%);
 
 
 }
 
 .userImg {
+  margin:15px auto;
   grid-area: userImg;
   overflow: hidden;
   width: 150px;
@@ -17,10 +18,12 @@
   align-self: center;
   justify-self: center;
 
+
   img {
     width: 150px;
     height: auto;
   }
+
 }
 
 .userInfo {
@@ -31,6 +34,7 @@
 .userDetails {
   p {
     font-weight: bold;
+
     span {
       font-weight: normal;
     }

@@ -35,12 +35,18 @@ a {
 textarea {
   all: unset;
   text-overflow: ellipsis;
-  width: 845px;
+  margin: 0 50px;
+  width: 750px;
   min-height: 50px;
   align-self: center;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   border-radius: 15px;
   background-color: #f1f0f0;
+}
+
+.postsList {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 /*# sourceMappingURL=PostsArea.module.css.map */

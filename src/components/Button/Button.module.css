@@ -28,10 +28,11 @@ a {
 .button {
   all: unset;
   margin: 20px 50px;
+  padding: 0 10px;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 15px;
   height: 30px;
-  width: 60px;
+  width: fit-content;
   cursor: pointer;
   opacity: 0.8;
   background-color: #808f74;

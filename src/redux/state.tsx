@@ -1,4 +1,5 @@
 import {v1} from 'uuid';
+import {rerenderEntireTree} from '../render';
 
 export type NavigationElementType = {
     id: string;
@@ -102,12 +103,54 @@ export const state: StateType = {
             {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}
         ],
         messages: [
-            {id: v1(), text: 'Hello, people! How are you?', time: '12:15', userName: 'Alex Key', avatarLink: './img/friends/1.png', isOwnMessage: false},
-            {id: v1(), text: '"Hey, Alex. I\'m fine"', time: "12:15", userName: 'Martin Bin', avatarLink: './img/friends/2.png', isOwnMessage: false},
-            {id: v1(), text: 'Good evening. Thank yoy for your question. Everything is ok. The weather is perfect. Any news from Jane?', time: '12:15', userName: 'Bob Wall', avatarLink: './img/friends/3.png', isOwnMessage: false},
-            {id: v1(), text: 'Oh, just woke up. Will answer later...', time: '12:15', userName: 'Billy Han', avatarLink: './img/friends/4.png', isOwnMessage: false},
-            {id: v1(), text: 'Hahaha, there is on sleepy guy here', time: '12:15', userName: 'Billy Way', avatarLink: './img/avatar.jpg', isOwnMessage: true},
-            {id: v1(), text: 'I woke up at 7:00 am today :(', time: '12:15', userName: 'Billy Way', avatarLink: './img/avatar.jpg', isOwnMessage: true},
+            {
+                id: v1(),
+                text: 'Hello, people! How are you?',
+                time: '12:15',
+                userName: 'Alex Key',
+                avatarLink: './img/friends/1.png',
+                isOwnMessage: false
+            },
+            {
+                id: v1(),
+                text: '"Hey, Alex. I\'m fine"',
+                time: '12:15',
+                userName: 'Martin Bin',
+                avatarLink: './img/friends/2.png',
+                isOwnMessage: false
+            },
+            {
+                id: v1(),
+                text: 'Good evening. Thank yoy for your question. Everything is ok. The weather is perfect. Any news from Jane?',
+                time: '12:15',
+                userName: 'Bob Wall',
+                avatarLink: './img/friends/3.png',
+                isOwnMessage: false
+            },
+            {
+                id: v1(),
+                text: 'Oh, just woke up. Will answer later...',
+                time: '12:15',
+                userName: 'Billy Han',
+                avatarLink: './img/friends/4.png',
+                isOwnMessage: false
+            },
+            {
+                id: v1(),
+                text: 'Hahaha, there is on sleepy guy here',
+                time: '12:15',
+                userName: 'Billy Way',
+                avatarLink: './img/avatar.jpg',
+                isOwnMessage: true
+            },
+            {
+                id: v1(),
+                text: 'I woke up at 7:00 am today :(',
+                time: '12:15',
+                userName: 'Billy Way',
+                avatarLink: './img/avatar.jpg',
+                isOwnMessage: true
+            },
         ]
     },
     sidebarPage: {
@@ -130,4 +173,16 @@ export const state: StateType = {
         headerTitle: 'Social Network'
     },
 
+};
+
+export const addPost = (postText: string): void => {
+    let newPost: PostCardType = {
+        id: v1(),
+        postText,
+        avatarLink: './img/avatar.jpg',
+        isLiked: false,
+        likesNumber: 0
+    }
+    state.profilePage.postCards.push(newPost)
+    rerenderEntireTree(state)
 };

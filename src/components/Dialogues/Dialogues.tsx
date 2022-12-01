@@ -38,6 +38,12 @@ const Dialogues = (props: DialoguesPropsType) => {
         )
     })
 
+    let newMessage = React.createRef<HTMLInputElement>()
+    const addMessage = () => {
+        let messageText = newMessage.current?.value
+        alert(messageText)
+    };
+
     return (
         <div className={`${styles.content} d-flex m-20`}>
             <div className={styles.dialoguesListWrapper}>
@@ -53,8 +59,8 @@ const Dialogues = (props: DialoguesPropsType) => {
                 </div>
 
                 <div className={styles.inputWrapper}>
-                    <input value="this is input" type="text"/>
-                    <Button text={'Send'}/>
+                    <input ref={newMessage} placeholder="Type a new message..." type="text"/>
+                    <Button text={'Send'} onClickCallback={addMessage} />
                 </div>
             </div>
 
