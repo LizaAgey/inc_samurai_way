@@ -4,26 +4,29 @@ import 'macro-css'
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Dialogues from './components/Dialogues/Dialogues';
-import { Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
-import {StateType} from './redux/state';
+import {StoreType} from './redux/Store';
 import Sidebar from './components/Sidebar/Sidebar';
 
 type AppPropsType = {
-    state: StateType
-    addPost: (postText: string)=>void
+    store: StoreType
 }
 
 const App = (props: AppPropsType) => {
+    const state = props.store.getState()
+
     return (
-            <div className={'appWrapper'}>
-                <Header header={props.state.header}/>
-                <Route path="/profile" render={() => <Profile state={props.state.profilePage}
-                 addPost={props.addPost}
+        <div className={'appWrapper'}>
+            <Header header={state.header}/>
+            <Route path="/profile" render={() =>
+                <Profile
+                    profilePage={state.profilePage}
+                    dispatch={props.store.dispatch.bind(props.store)}
                 />}/>
-                <Route path="/messages" render={() => <Dialogues state={props.state.dialoguesPage}/>}/>
-                <Sidebar state={props.state.sidebarPage}/>
-            </div>
+            <Route path="/messages" render={() => <Dialogues state={state.dialoguesPage}/>}/>
+            <Sidebar state={state.sidebarPage}/>
+        </div>
     );
 }
 

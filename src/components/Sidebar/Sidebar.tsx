@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
 import Navigation from './Navigation/Navigation';
-import {SidebarPageType} from '../../redux/state';
+import {SidebarPageType} from '../../redux/Store';
 import Friends from './Friends/Friends';
 
 type SidebarType = {

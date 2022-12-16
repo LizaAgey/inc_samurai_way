@@ -3,7 +3,7 @@ import 'macro-css'
 import styles from './Dialogues.module.scss'
 import Message from './Message/Message';
 import DialogueElement from './DialogueElement/DialogueElement';
-import {DialogueType, MessageType} from '../../redux/state';
+import {DialogueType, MessageType} from '../../redux/Store';
 import Button from '../Button/Button';
 
 

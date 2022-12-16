@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Header.module.scss"
 import 'macro-css'
-import {HeaderType} from '../../redux/state';
+import {HeaderType} from '../../redux/Store';
 
 type HeaderPropsType = {
     header: HeaderType

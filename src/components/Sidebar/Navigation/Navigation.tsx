@@ -1,6 +1,6 @@
 import React from 'react';
 import 'macro-css'
-import {NavigationElementType} from '../../../redux/state';
+import {NavigationElementType} from '../../../redux/Store';
 import NavigationElement from './NavigationElement';
 
 type NavigationPropsType = {
@@ -11,6 +11,7 @@ const Navigation = (props: NavigationPropsType) => {
     let navigationList = props.navigationElements.map((navLink) => {
         return (
             <NavigationElement
+                key={navLink.id}
                 id={navLink.id}
                 link={navLink.link}
                 navTitle={navLink.navTitle}
