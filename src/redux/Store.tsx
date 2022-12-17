@@ -53,6 +53,7 @@ export type ProfilePageType = {
 export type DialoguesPageType = {
     dialogues: Array<DialogueType>
     messages: Array<MessageType>
+    newMessageText: string
 }
 export type SidebarPageType = {
     navigationElements: Array<NavigationElementType>
@@ -73,7 +74,11 @@ export type StoreType = {
     dispatch: (action: ActionsType) => void
 }
 
-export type ActionsType = ReturnType<typeof addPostAС> | ReturnType<typeof updateNewPostAС>
+export type ActionsType =
+    ReturnType<typeof addPostAС>
+    | ReturnType<typeof updateNewPostAС>
+    | ReturnType<typeof sendMessageAC>
+    | ReturnType<typeof updateNewMessageTextAC>
 
 export const store: StoreType = {
     _state: {
@@ -148,7 +153,7 @@ export const store: StoreType = {
                 },
                 {
                     id: v1(),
-                    text: 'Hahaha, there is on sleepy guy here',
+                    text: 'Hahaha, there is one sleepy guy here',
                     time: '12:15',
                     userName: 'Billy Way',
                     avatarLink: './img/avatar.jpg',
@@ -162,7 +167,8 @@ export const store: StoreType = {
                     avatarLink: './img/avatar.jpg',
                     isOwnMessage: true
                 },
-            ]
+            ],
+            newMessageText: ''
         },
         sidebarPage: {
             navigationElements: [
@@ -207,13 +213,39 @@ export const store: StoreType = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber()
+        } else if (action.type === UPDATE_MESSAGE_TEXT) {
+            this._state.dialoguesPage.newMessageText = action.newMessageText
+            this._callSubscriber()
+        } else if (action.type === SEND_MESSAGE) {
+            let newMessageText = this._state.dialoguesPage.newMessageText
+            this._state.dialoguesPage.newMessageText = ''
+            let newMessage: MessageType = {
+                id: v1(),
+                text: newMessageText,
+                time: '12:15',
+                userName: 'Billy Wan',
+                avatarLink: './img/avatar.jpg',
+                isOwnMessage: true
+            }
+            this._state.dialoguesPage.messages.push(newMessage)
+            this._callSubscriber()
         }
     },
 }
 
-export const ADD_POST = 'ADD-POST'
-export const addPostAС = () => ({type: ADD_POST} as const)
-
 export const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+export const ADD_POST = 'ADD-POST'
+export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
+export const SEND_MESSAGE = 'SEND-MESSAGE'
+
+export const addPostAС = () => ({type: ADD_POST} as const)
 export const updateNewPostAС = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
+
+export const sendMessageAC = () => ({type: 'SEND-MESSAGE',} as const)
+export const updateNewMessageTextAC = (newMessageText: string) => {
+    return {
+        type: 'UPDATE-MESSAGE-TEXT',
+        newMessageText
+    } as const
+};
 

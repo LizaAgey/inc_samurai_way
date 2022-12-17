@@ -24,7 +24,11 @@ const App = (props: AppPropsType) => {
                     profilePage={state.profilePage}
                     dispatch={props.store.dispatch.bind(props.store)}
                 />}/>
-            <Route path="/messages" render={() => <Dialogues state={state.dialoguesPage}/>}/>
+            <Route path="/messages" render={() =>
+                <Dialogues
+                    dialoguesPage={state.dialoguesPage}
+                    dispatch={props.store.dispatch.bind(props.store)}
+                />}/>
             <Sidebar state={state.sidebarPage}/>
         </div>
     );

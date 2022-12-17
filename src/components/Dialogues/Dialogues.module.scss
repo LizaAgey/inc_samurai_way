@@ -6,6 +6,7 @@
   .dialoguesListWrapper {
     width: 230px;
     min-height: 70vh;
+
   }
 
   h3 {
@@ -42,7 +43,7 @@
 
   .chat {
     width: 100%;
-
+    height: 540px;
     border-radius: 15px;
     overflow: hidden;
     border: $light-grey-color solid 2px;
@@ -61,8 +62,11 @@
       padding: 30px;
       border-bottom: $chat-message-green solid 2px;
       background-color: $chat-bright-green;
-      overflow: hidden;
+      //overflow: hidden;
+      max-height: 400px;
+      overflow-y: scroll;
     }
+
     .inputWrapper {
       display: flex;
       background-color:white;

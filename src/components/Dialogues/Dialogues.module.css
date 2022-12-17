@@ -1,9 +1,9 @@
 /* Error: "+" and "-" must be surrounded by whitespace in calculations.
  *    ,
- * 59 |       width: calc(100%- 60px);
+ * 60 |       width: calc(100%- 60px);
  *    |                       ^
  *    '
- *   Dialogues.module.scss 59:23  root stylesheet */
+ *   Dialogues.module.scss 60:23  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: "+" and "-" must be surrounded by whitespace in calculations.\a    \2577 \a 59 \2502        width: calc(100%- 60px);\d\a    \2502                        ^\a    \2575 \a   Dialogues.module.scss 59:23  root stylesheet';
+  content: 'Error: "+" and "-" must be surrounded by whitespace in calculations.\a    \2577 \a 60 \2502        width: calc(100%- 60px);\d\a    \2502                        ^\a    \2575 \a   Dialogues.module.scss 60:23  root stylesheet';
 }

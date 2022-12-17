@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import 'macro-css'
 import styles from './Dialogues.module.scss'
 import Message from './Message/Message';
 import DialogueElement from './DialogueElement/DialogueElement';
-import {DialogueType, MessageType} from '../../redux/Store';
+import {
+    ActionsType,
+    DialoguesPageType,
+    DialogueType,
+    MessageType,
+    sendMessageAC,
+    updateNewMessageTextAC
+} from '../../redux/Store';
 import Button from '../Button/Button';
 
 
 type DialoguesPropsType = {
-    state: {
-        dialogues: Array<DialogueType>
-        messages: Array<MessageType>
-    }
+    dialoguesPage: DialoguesPageType,
+    dispatch: (action: ActionsType) => void
 }
 
 const Dialogues = (props: DialoguesPropsType) => {
-    let messageList = props.state.messages.map((message) => {
+    let messageList = props.dialoguesPage.messages.map((message) => {
         return (
             <Message
                 avatarLink={message.avatarLink}
@@ -28,7 +33,7 @@ const Dialogues = (props: DialoguesPropsType) => {
         )
     })
 
-    let dialoguesList = props.state.dialogues.map((dialogue) => {
+    let dialoguesList = props.dialoguesPage.dialogues.map((dialogue) => {
         return (
             <DialogueElement
                 id={dialogue.id}
@@ -38,10 +43,14 @@ const Dialogues = (props: DialoguesPropsType) => {
         )
     })
 
-    let newMessage = React.createRef<HTMLInputElement>()
-    const addMessage = () => {
-        let messageText = newMessage.current?.value
-        alert(messageText)
+    let newMessage = props.dialoguesPage.newMessageText
+    const sendMessageHandler = () => {
+        props.dispatch(sendMessageAC())
+    };
+
+    const updateNewMessageTextHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        let currentText = event.currentTarget.value
+        props.dispatch(updateNewMessageTextAC(currentText))
     };
 
     return (
@@ -59,8 +68,11 @@ const Dialogues = (props: DialoguesPropsType) => {
                 </div>
 
                 <div className={styles.inputWrapper}>
-                    <input ref={newMessage} placeholder="Type a new message..." type="text"/>
-                    <Button text={'Send'} onClickCallback={addMessage} />
+                    <input value={newMessage}
+                           onChange={updateNewMessageTextHandler}
+                           placeholder="Type a new message..."
+                           type="text"/>
+                    <Button text={'Send'} onClickCallback={sendMessageHandler}/>
                 </div>
             </div>
 
