@@ -2,12 +2,8 @@ import React from 'react';
 import styles from './PostsArea.module.scss';
 import Button from '../../Button/Button';
 import PostCard from './PostCard/PostCard';
-import {
-    ActionsType,
-    PostCardType,
-    addPostAС,
-    updateNewPostAС
-} from '../../../redux/Store';
+import {ActionsType, PostCardType} from '../../../redux/Store';
+import {addPostAС, updateNewPostAС} from '../../../redux/profileReducer';
 
 type PostsAreaPropsType = {
     postCards: Array<PostCardType>

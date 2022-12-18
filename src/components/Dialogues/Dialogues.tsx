@@ -3,15 +3,9 @@ import 'macro-css'
 import styles from './Dialogues.module.scss'
 import Message from './Message/Message';
 import DialogueElement from './DialogueElement/DialogueElement';
-import {
-    ActionsType,
-    DialoguesPageType,
-    DialogueType,
-    MessageType,
-    sendMessageAC,
-    updateNewMessageTextAC
-} from '../../redux/Store';
+import {ActionsType, DialoguesPageType} from '../../redux/Store';
 import Button from '../Button/Button';
+import {sendMessageAC, updateNewMessageTextAC} from '../../redux/dialoguesReducer';
 
 
 type DialoguesPropsType = {
@@ -62,7 +56,6 @@ const Dialogues = (props: DialoguesPropsType) => {
             </div>
 
             <div className={styles.chat}>
-                {/*<div className={styles.chatBackground}></div>*/}
                 <div className={styles.messagesWrapper}>
                     {messageList}
                 </div>

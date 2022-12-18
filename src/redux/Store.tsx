@@ -1,4 +1,7 @@
 import {v1} from 'uuid';
+import profileReducer, {addPostAС, updateNewPostAС} from './profileReducer';
+import dialoguesReducer, {sendMessageAC, updateNewMessageTextAC} from './dialoguesReducer';
+import sidebarReducer from './sidebarReducer';
 
 export type NavigationElementType = {
     id: string;
@@ -199,53 +202,10 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost: PostCardType = {
-                id: v1(),
-                postText: this._state.profilePage.newPostText,
-                avatarLink: './img/avatar.jpg',
-                isLiked: false,
-                likesNumber: 0
-            }
-            this._state.profilePage.postCards.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber()
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber()
-        } else if (action.type === UPDATE_MESSAGE_TEXT) {
-            this._state.dialoguesPage.newMessageText = action.newMessageText
-            this._callSubscriber()
-        } else if (action.type === SEND_MESSAGE) {
-            let newMessageText = this._state.dialoguesPage.newMessageText
-            this._state.dialoguesPage.newMessageText = ''
-            let newMessage: MessageType = {
-                id: v1(),
-                text: newMessageText,
-                time: '12:15',
-                userName: 'Billy Wan',
-                avatarLink: './img/avatar.jpg',
-                isOwnMessage: true
-            }
-            this._state.dialoguesPage.messages.push(newMessage)
-            this._callSubscriber()
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action)
+        this._state.sidebarPage = sidebarReducer(this._state.sidebarPage, action)
+
+        this._callSubscriber()
     },
 }
-
-export const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-export const ADD_POST = 'ADD-POST'
-export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
-export const SEND_MESSAGE = 'SEND-MESSAGE'
-
-export const addPostAС = () => ({type: ADD_POST} as const)
-export const updateNewPostAС = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
-
-export const sendMessageAC = () => ({type: 'SEND-MESSAGE',} as const)
-export const updateNewMessageTextAC = (newMessageText: string) => {
-    return {
-        type: 'UPDATE-MESSAGE-TEXT',
-        newMessageText
-    } as const
-};
-
