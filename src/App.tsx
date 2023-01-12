@@ -6,11 +6,11 @@ import Profile from './components/Profile/Profile';
 import Dialogues from './components/Dialogues/Dialogues';
 import {Route} from 'react-router-dom';
 
-import {StoreType} from './redux/Store';
+// import {StoreType} from './redux/Store';
 import Sidebar from './components/Sidebar/Sidebar';
 
 type AppPropsType = {
-    store: StoreType
+    store: any //TODO: CHANGE
 }
 
 const App = (props: AppPropsType) => {
@@ -18,7 +18,7 @@ const App = (props: AppPropsType) => {
 
     return (
         <div className={'appWrapper'}>
-            <Header header={state.header}/>
+            <Header/>
             <Route path="/profile" render={() =>
                 <Profile
                     profilePage={state.profilePage}

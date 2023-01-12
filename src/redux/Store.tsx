@@ -22,10 +22,6 @@ export type MessageType = {
     id: string,
     isOwnMessage: boolean
 }
-export type HeaderType = {
-    link: string
-    headerTitle: string
-}
 export type UserType = {
     id: string
     avatar: string
@@ -67,7 +63,6 @@ export type StateType = {
     profilePage: ProfilePageType
     dialoguesPage: DialoguesPageType
     sidebarPage: SidebarPageType
-    header: HeaderType
 }
 export type StoreType = {
     _state: StateType
@@ -188,10 +183,6 @@ export const store: StoreType = {
                 {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}
             ]
         },
-        header: {
-            link: './social_network_logo.ico',
-            headerTitle: 'Social Network'
-        }
     },
     _callSubscriber() {
     },
