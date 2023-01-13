@@ -13,8 +13,11 @@ type PostsAreaPropsType = {
 const PostsArea = (props: PostsAreaPropsType) => {
 
     const updateNewPostText = (event: ChangeEvent<HTMLInputElement>) => {
+        debugger
         let currentText = event.currentTarget.value
-        currentText && props.updateNewPostText(currentText)
+        if (currentText || currentText === '') {
+            props.updateNewPostText(currentText)
+        }
     };
     const onEnterAddPost = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {

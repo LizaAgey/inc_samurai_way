@@ -17,7 +17,9 @@ const Dialogues = (props: DialoguesPropsType) => {
     let newMessage = props.newMessageText
     const updateNewMessageText = (event: ChangeEvent<HTMLInputElement>) => {
         let currentText = event.currentTarget.value
-        currentText &&  props.updateNewMessageText(currentText)
+        if (currentText || currentText === '') {
+            props.updateNewMessageText(currentText)
+        }
     };
 
     const onEnterSendMessage = (event: KeyboardEvent<HTMLInputElement>) => {
