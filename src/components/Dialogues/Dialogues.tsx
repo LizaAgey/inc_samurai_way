@@ -2,6 +2,7 @@ import React, {ChangeEvent,KeyboardEvent} from 'react';
 import 'macro-css'
 import styles from './Dialogues.module.scss'
 import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 type DialoguesPropsType = {
     dialoguesList: Array<JSX.Element>
@@ -14,13 +15,13 @@ type DialoguesPropsType = {
 const Dialogues = (props: DialoguesPropsType) => {
 
     let newMessage = props.newMessageText
-    const updateNewMessageTextHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const updateNewMessageText = (event: ChangeEvent<HTMLInputElement>) => {
         let currentText = event.currentTarget.value
         currentText &&  props.updateNewMessageText(currentText)
     };
 
-    const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
+    const onEnterSendMessage = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
             props.sendMessage()
         }
     };
@@ -38,11 +39,13 @@ const Dialogues = (props: DialoguesPropsType) => {
                 </div>
 
                 <div className={styles.inputWrapper}>
-                    <input value={newMessage}
-                           onChange={(event)=>updateNewMessageTextHandler(event)}
-                           onKeyDown={(event)=>onEnter(event)}
-                           placeholder="Type a new message..."
-                           type="text"/>
+
+                    <Input
+                        value={newMessage}
+                        onChange={updateNewMessageText}
+                        onKeyDown={onEnterSendMessage}
+                        placeholder="Type a new message..."
+                    />
                     <Button text={'Send'} onClickCallback={props.sendMessage} />
                 </div>
             </div>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './PostsArea.module.scss';
 import Button from '../../Button/Button';
+import Input from '../../Input/Input';
 
 type PostsAreaPropsType = {
     postCardElements: Array<JSX.Element>
@@ -10,33 +11,29 @@ type PostsAreaPropsType = {
 }
 
 const PostsArea = (props: PostsAreaPropsType) => {
-    let newPostCard = React.createRef<HTMLTextAreaElement>()
 
-    const addPostHandler = () => {
-        props.addPost()
+    const updateNewPostText = (event: ChangeEvent<HTMLInputElement>) => {
+        let currentText = event.currentTarget.value
+        currentText && props.updateNewPostText(currentText)
     };
-
-    const onPostChangeHandler = () => {
-        let newText = newPostCard.current?.value
-        newText && props.updateNewPostText(newText)
+    const onEnterAddPost = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            props.addPost()
+        }
     };
 
     return (
         <div className={`${styles.postsArea} d-flex flex-column`}>
             <h3>
-                <label htmlFor="posts">My posts</label>
+                My posts
             </h3>
-
-            <textarea
-                ref={newPostCard}
-                className="p-10"
-                id="posts"
-                placeholder="Share your news..."
-                rows={1} cols={5}
+            <Input
                 value={props.newPostText}
-                onChange={onPostChangeHandler}
+                onChange={updateNewPostText}
+                onKeyDown={onEnterAddPost}
+                placeholder={'Share your news...'}
             />
-            <Button text={'Add post'} onClickCallback={addPostHandler}/>
+            <Button text={'Add post'} onClickCallback={props.addPost}/>
 
             <div className={styles.postsList}>
                 {props.postCardElements}
