@@ -24,16 +24,17 @@ const PostsArea = (props: PostsAreaPropsType) => {
 
     return (
         <div className={`${styles.postsArea} d-flex flex-column`}>
-            <h3>
-                My posts
-            </h3>
-            <Input
-                value={props.newPostText}
-                onChange={updateNewPostText}
-                onKeyDown={onEnterAddPost}
-                placeholder={'Share your news...'}
-            />
-            <Button text={'Add post'} onClickCallback={props.addPost}/>
+            <h3>My posts</h3>
+
+            <div className={styles.inputWrapper}>
+                <Input
+                    value={props.newPostText}
+                    onChange={updateNewPostText}
+                    onKeyDown={onEnterAddPost}
+                    placeholder={'Share your news...'}
+                />
+                <Button text={'Add post'} onClickCallback={props.addPost}/>
+            </div>
 
             <div className={styles.postsList}>
                 {props.postCardElements}

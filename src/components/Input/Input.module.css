@@ -25,25 +25,12 @@ a {
   grid-column-end: 5;
 }
 
-.postsArea {
-  grid-area: postsArea;
-  align-items: center;
-}
-.postsArea h3 {
-  text-align: center;
-}
-
-.postsList {
-  display: flex;
-  flex-direction: column-reverse;
+.input {
+  all: unset;
+  height: 50px;
+  width: 80%;
+  padding: 15px;
+  font-weight: 500;
 }
 
-.inputWrapper {
-  display: flex;
-  width: 100%;
-  margin: 20px 0;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  background-color: #f1f0f0;
-}
-
-/*# sourceMappingURL=PostsArea.module.css.map */
+/*# sourceMappingURL=Input.module.css.map */

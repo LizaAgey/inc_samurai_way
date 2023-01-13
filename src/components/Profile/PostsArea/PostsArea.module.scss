@@ -3,25 +3,23 @@
 
 .postsArea {
   grid-area: postsArea;
+  align-items: center;
 
   h3 {
     text-align: center;
   }
 }
 
-textarea {
-  all: unset;
-  text-overflow: ellipsis;
-  margin: 0 50px;
-  width: 750px;
-  min-height: 50px;
-  align-self: center;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  border-radius: 15px;
-  background-color: $light-grey-color;
-}
-
 .postsList {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  background-color: $light-grey-color;
+
 }

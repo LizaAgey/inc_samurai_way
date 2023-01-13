@@ -1,17 +1,83 @@
-/* Error: "+" and "-" must be surrounded by whitespace in calculations.
- *    ,
- * 60 |       width: calc(100%- 60px);
- *    |                       ^
- *    '
- *   Dialogues.module.scss 60:23  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: "+" and "-" must be surrounded by whitespace in calculations.\a    \2577 \a 60 \2502        width: calc(100%- 60px);\d\a    \2502                        ^\a    \2575 \a   Dialogues.module.scss 60:23  root stylesheet';
+a {
+  all: unset;
+  cursor: pointer;
 }
+
+.appWrapper {
+  background-color: #FAFAF9;
+  width: 1200px;
+  margin: 0px auto;
+  display: grid;
+  grid-template-areas: "header header " "sidebar content ";
+  grid-template-rows: 75px 15fr;
+  grid-auto-columns: 2fr 2fr;
+}
+
+.sidebar, .content {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.content {
+  grid-area: content;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.content {
+  padding: 15px;
+}
+.content .dialoguesListWrapper {
+  width: 230px;
+  min-height: 70vh;
+}
+.content h3 {
+  margin: 20px;
+  color: rgba(94, 96, 95, 0.74);
+}
+.content .dialogWrapper {
+  align-items: center;
+  margin: 10px 10px 10px 0;
+}
+.content .dialogWrapper img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+.content .dialogWrapper p {
+  padding-left: 5px;
+  color: rgba(94, 96, 95, 0.74);
+}
+.content .dialogWrapper p.active {
+  color: #171D1F;
+}
+.content .dialogWrapper:hover {
+  background-color: rgba(158, 176, 142, 0.1);
+  cursor: pointer;
+  border-radius: 15px;
+}
+.content .chat {
+  width: 100%;
+  height: 540px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: #f1f0f0 solid 2px;
+}
+.content .chat .messagesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 60px);
+  height: calc(100% - 48px);
+  padding: 30px;
+  border-bottom: #D8E2CF solid 2px;
+  background-color: #FBFFF7;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.content .chat .inputWrapper {
+  display: flex;
+  background-color: white;
+}
+
+/*# sourceMappingURL=Dialogues.module.css.map */
