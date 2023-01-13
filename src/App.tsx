@@ -3,14 +3,13 @@ import './App.scss';
 import 'macro-css'
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
-import Dialogues from './components/Dialogues/Dialogues';
 import {Route} from 'react-router-dom';
-
-// import {StoreType} from './redux/Store';
+import {ReduxStoreType} from './redux/redux-store';
 import Sidebar from './components/Sidebar/Sidebar';
+import DialoguesContainer from './components/Dialogues/DialoguesContainer';
 
 type AppPropsType = {
-    store: any //TODO: CHANGE
+    store: ReduxStoreType
 }
 
 const App = (props: AppPropsType) => {
@@ -20,15 +19,9 @@ const App = (props: AppPropsType) => {
         <div className={'appWrapper'}>
             <Header/>
             <Route path="/profile" render={() =>
-                <Profile
-                    profilePage={state.profilePage}
-                    dispatch={props.store.dispatch.bind(props.store)}
-                />}/>
+                <Profile store={props.store}/>}/>
             <Route path="/messages" render={() =>
-                <Dialogues
-                    dialoguesPage={state.dialoguesPage}
-                    dispatch={props.store.dispatch.bind(props.store)}
-                />}/>
+                <DialoguesContainer store={props.store}/>}/>
             <Sidebar state={state.sidebarPage}/>
         </div>
     );

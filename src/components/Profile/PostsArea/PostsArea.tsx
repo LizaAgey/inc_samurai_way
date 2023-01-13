@@ -1,42 +1,26 @@
 import React from 'react';
 import styles from './PostsArea.module.scss';
 import Button from '../../Button/Button';
-import PostCard from './PostCard/PostCard';
-import {ActionsType, PostCardType} from '../../../redux/Store';
-import {addPostAС, updateNewPostAС} from '../../../redux/profileReducer';
 
 type PostsAreaPropsType = {
-    postCards: Array<PostCardType>
+    postCardElements: Array<JSX.Element>
     newPostText: string
-    dispatch: (action: ActionsType) => void
+    updateNewPostText: (newText: string) => void
+    addPost: () => void
 }
 
 const PostsArea = (props: PostsAreaPropsType) => {
-    const getPostCardsList = props.postCards.map((postCard) => {
-        return (
-            <PostCard
-                key={postCard.id}
-                id={postCard.id}
-                postText={postCard.postText}
-                avatarLink={postCard.avatarLink}
-                isLiked={postCard.isLiked}
-                likesNumber={postCard.likesNumber}
-            />
-        )
-    })
     let newPostCard = React.createRef<HTMLTextAreaElement>()
 
     const addPostHandler = () => {
-        props.dispatch(addPostAС())
+        props.addPost()
     };
 
-    const onPostChange = () => {
+    const onPostChangeHandler = () => {
         let newText = newPostCard.current?.value
-        if (newText) {
-            let action: ActionsType = updateNewPostAС(newText)
-            props.dispatch(action)
-        }
+        newText && props.updateNewPostText(newText)
     };
+
     return (
         <div className={`${styles.postsArea} d-flex flex-column`}>
             <h3>
@@ -50,11 +34,12 @@ const PostsArea = (props: PostsAreaPropsType) => {
                 placeholder="Share your news..."
                 rows={1} cols={5}
                 value={props.newPostText}
-                onChange={onPostChange}
+                onChange={onPostChangeHandler}
             />
             <Button text={'Add post'} onClickCallback={addPostHandler}/>
+
             <div className={styles.postsList}>
-                {getPostCardsList}
+                {props.postCardElements}
             </div>
         </div>
     );

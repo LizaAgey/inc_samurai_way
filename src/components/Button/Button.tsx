@@ -12,7 +12,10 @@ const Button: React.FC<ButtonType> = (props) => {
     };
 
     return (
-        <button className={styles.button} onClick={onClickHandler}>{props.text}</button>
+        <button
+            className={styles.button}
+            onClick={onClickHandler}
+        >{props.text}</button>
     );
 };
 
