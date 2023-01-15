@@ -1,12 +1,8 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
 import Navigation from './Navigation/Navigation';
-import {SidebarPageType} from '../../redux/Store';
 import Friends from './Friends/Friends';
-
-type SidebarType = {
-    state: SidebarPageType
-}
+import {SidebarType} from './SidebarContainer';
 
 const Sidebar: React.FC<SidebarType> = (props) => {
     return (

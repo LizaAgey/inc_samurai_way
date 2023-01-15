@@ -1,58 +1,62 @@
 import React from 'react';
 import 'macro-css'
-import Message from './Message/Message';
-import DialogueElement from './DialogueElement/DialogueElement';
-import {sendMessageAC, updateNewMessageTextAC} from '../../redux/dialoguesReducer';
+import {DialoguesPageType, sendMessageAC, updateNewMessageTextAC} from '../../redux/dialoguesReducer';
 import Dialogues from './Dialogues';
-import {StoreContext} from './../../context/StoreContext';
+import {connect} from 'react-redux';
+import {AppStateType} from '../../redux/redux-store';
+import {Dispatch} from 'redux';
 
+type MapStatePropsType = {
+    state: DialoguesPageType
+}
 
-const DialoguesContainer = () => {
-    return <StoreContext.Consumer>
-        {
-            (store) => {
-                let state = store.getState().dialoguesPage
-                let messageList: Array<JSX.Element> = state.messages.map((message) => {
-                    return (
-                        <Message
-                            key={message.id}
-                            avatarLink={message.avatarLink}
-                            userName={message.userName}
-                            time={message.time}
-                            text={message.text}
-                            id={message.id}
-                            isOwnMessage={message.isOwnMessage}
-                        />
-                    )
-                })
-                let dialoguesList: Array<JSX.Element> = state.dialogues.map((dialogue) => {
-                    return (
-                        <DialogueElement
-                            key={dialogue.id}
-                            id={dialogue.id}
-                            avatarLink={dialogue.avatarLink}
-                            friendName={dialogue.friendName}
-                        />
-                    )
-                })
+type MapDispatchPropsType = {
+    updateNewMessageText: (currentText: string) => void
+    sendMessage: () => void
+}
 
-                const sendMessageHandler = () => {
-                    store.dispatch(sendMessageAC())
-                };
-                const updateNewMessageText = (currentText: string) => {
-                    store.dispatch(updateNewMessageTextAC(currentText))
-                };
+export type DialoguesPropsType = MapStatePropsType & MapDispatchPropsType
 
-                return <Dialogues
-                    dialoguesList={dialoguesList}
-                    messageList={messageList}
-                    updateNewMessageText={updateNewMessageText}
-                    sendMessage={sendMessageHandler}
-                    newMessageText={state.newMessageText}
-                />
-            }}
-    </StoreContext.Consumer>
-
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
+    return {
+        state: state.dialoguesPage
+    };
 };
 
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
+    return {
+        updateNewMessageText: (currentText: string) => {
+            dispatch(updateNewMessageTextAC(currentText))
+        },
+        sendMessage: () => {
+            dispatch(sendMessageAC())
+        }
+    };
+};
+
+const DialoguesContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogues)
+
 export default DialoguesContainer;
+
+// const DialoguesContainer_for_study = () => {
+//     return <StoreContext_for_study.Consumer>
+//         {
+//             (store) => {
+//                 let state = store.getState().dialoguesPage
+//
+//                 const sendMessageHandler = () => {
+//                     store.dispatch(sendMessageAC())
+//                 };
+//                 const updateNewMessageText = (currentText: string) => {
+//                     store.dispatch(updateNewMessageTextAC(currentText))
+//                 };
+//
+//                 return <Dialogues
+//                     updateNewMessageText={updateNewMessageText}
+//                     sendMessage={sendMessageHandler}
+//                     state={state}
+//                 />
+//             }}
+//     </StoreContext_for_study.Consumer>
+//
+// };

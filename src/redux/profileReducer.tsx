@@ -1,11 +1,33 @@
-import {ActionsType, PostCardType, ProfilePageType} from './Store';
 import {v1} from 'uuid';
+import {ActionsType} from './redux-store';
+
+export type ProfilePageType = {
+    users: Array<UserType>
+    postCards: Array<PostCardType>
+    newPostText: string
+}
+export type UserType = {
+    id: string
+    avatar: string
+    name: string
+    bday: string
+    city: string
+    education: string
+    media: string
+}
+export type PostCardType = {
+    id: string,
+    postText: string,
+    avatarLink: string,
+    isLiked: boolean,
+    likesNumber: number
+}
 
 export const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 export const ADD_POST = 'ADD-POST'
 
 export const addPostAС = () => ({type: ADD_POST} as const)
-export const updateNewPostAС = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
+export const updateNewPostAC = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
 
 const initialState: ProfilePageType =  {
     users: [
@@ -37,7 +59,7 @@ const initialState: ProfilePageType =  {
     newPostText: ''
 }
 
-const profileReducer = (state: ProfilePageType = initialState, action: ActionsType) => {
+const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
     switch (action.type) {
         case ADD_POST:
             let newPost: PostCardType = {

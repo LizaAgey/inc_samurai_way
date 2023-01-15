@@ -1,70 +1,15 @@
 import {v1} from 'uuid';
-import profileReducer, {addPostAС, updateNewPostAС} from './profileReducer';
-import dialoguesReducer, {sendMessageAC, updateNewMessageTextAC} from './dialoguesReducer';
-import sidebarReducer from './sidebarReducer';
+import profileReducer, {ProfilePageType} from './profileReducer';
+import dialoguesReducer, {DialoguesPageType} from './dialoguesReducer';
+import sidebarReducer, {SidebarPageType} from './sidebarReducer';
+import {ActionsType} from './redux-store';
 
-export type NavigationElementType = {
-    id: string;
-    link: string;
-    navTitle: string;
-    linkIcon: string
-}
-export type DialogueType = {
-    id: string
-    avatarLink: string
-    friendName: string
-}
-export type MessageType = {
-    avatarLink: string,
-    userName: string,
-    time: string,
-    text: string,
-    id: string,
-    isOwnMessage: boolean
-}
-export type UserType = {
-    id: string
-    avatar: string
-    name: string
-    bday: string
-    city: string
-    education: string
-    media: string
-}
-export type PostCardType = {
-    id: string,
-    postText: string,
-    avatarLink: string,
-    isLiked: boolean,
-    likesNumber: number
-}
-export type FriendType = {
-    id: string
-    avatarLink: string
-    friendName: string
-}
-
-export type ProfilePageType = {
-    users: Array<UserType>
-    postCards: Array<PostCardType>
-    newPostText: string
-}
-export type DialoguesPageType = {
-    dialogues: Array<DialogueType>
-    messages: Array<MessageType>
-    newMessageText: string
-}
-export type SidebarPageType = {
-    navigationElements: Array<NavigationElementType>
-    friends: Array<FriendType>
-}
-
-export type StateType = {
+type StateType = {
     profilePage: ProfilePageType
     dialoguesPage: DialoguesPageType
     sidebarPage: SidebarPageType
 }
-export type StoreType = {
+type StoreType = {
     _state: StateType
     _callSubscriber: () => void
     subscribe: (callback: () => void) => void
@@ -72,13 +17,7 @@ export type StoreType = {
     dispatch: (action: ActionsType) => void
 }
 
-export type ActionsType =
-    ReturnType<typeof addPostAС>
-    | ReturnType<typeof updateNewPostAС>
-    | ReturnType<typeof sendMessageAC>
-    | ReturnType<typeof updateNewMessageTextAC>
-
-export const store: StoreType = {
+export const store_for_study: StoreType = {
     _state: {
         profilePage: {
             users: [

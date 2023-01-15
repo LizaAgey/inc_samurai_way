@@ -1,20 +1,15 @@
-import React, {ChangeEvent,KeyboardEvent} from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import 'macro-css'
 import styles from './Dialogues.module.scss'
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-
-type DialoguesPropsType = {
-    dialoguesList: Array<JSX.Element>
-    messageList: Array<JSX.Element>
-    updateNewMessageText: (currentText: string) => void
-    sendMessage: () => void
-    newMessageText: string
-}
+import Message from './Message/Message';
+import DialogueElement from './DialogueElement/DialogueElement';
+import {DialoguesPropsType} from './DialoguesContainer';
 
 const Dialogues = (props: DialoguesPropsType) => {
 
-    let newMessage = props.newMessageText
+    let newMessage = props.state.newMessageText
     const updateNewMessageText = (event: ChangeEvent<HTMLInputElement>) => {
         let currentText = event.currentTarget.value
         if (currentText || currentText === '') {
@@ -27,17 +22,41 @@ const Dialogues = (props: DialoguesPropsType) => {
             props.sendMessage()
         }
     };
+
+    let messageList: Array<JSX.Element> = props.state.messages.map((message) => {
+        return (
+            <Message
+                key={message.id}
+                avatarLink={message.avatarLink}
+                userName={message.userName}
+                time={message.time}
+                text={message.text}
+                id={message.id}
+                isOwnMessage={message.isOwnMessage}
+            />
+        )
+    })
+    let dialoguesList: Array<JSX.Element> = props.state.dialogues.map((dialogue) => {
+        return (
+            <DialogueElement
+                key={dialogue.id}
+                id={dialogue.id}
+                avatarLink={dialogue.avatarLink}
+                friendName={dialogue.friendName}
+            />
+        )
+    })
     return (
         <div className={`${styles.content} d-flex m-20`}>
             <div className={styles.dialoguesListWrapper}>
 
                 <h3>Messages</h3>
-                {props.dialoguesList}
+                {dialoguesList}
             </div>
 
             <div className={styles.chat}>
                 <div className={styles.messagesWrapper}>
-                    {props.messageList}
+                    {messageList}
                 </div>
 
                 <div className={styles.inputWrapper}>
@@ -48,7 +67,7 @@ const Dialogues = (props: DialoguesPropsType) => {
                         onKeyDown={onEnterSendMessage}
                         placeholder="Type a new message..."
                     />
-                    <Button text={'Send'} onClickCallback={props.sendMessage} />
+                    <Button text={'Send'} onClickCallback={props.sendMessage}/>
                 </div>
             </div>
 

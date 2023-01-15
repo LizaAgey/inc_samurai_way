@@ -2,13 +2,7 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styles from './PostsArea.module.scss';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
-
-type PostsAreaPropsType = {
-    postCardElements: Array<JSX.Element>
-    newPostText: string
-    updateNewPostText: (newText: string) => void
-    addPost: () => void
-}
+import {PostsAreaPropsType} from './PostsAreaContainer';
 
 const PostsArea = (props: PostsAreaPropsType) => {
 

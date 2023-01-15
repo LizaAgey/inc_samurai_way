@@ -1,47 +1,56 @@
 import React from 'react';
 import PostCard from './PostCard/PostCard';
-import {ActionsType} from '../../../redux/Store';
-import {addPostAС, updateNewPostAС} from '../../../redux/profileReducer';
+import {addPostAС, updateNewPostAC} from '../../../redux/profileReducer';
 import PostsArea from './PostsArea';
-import {StoreContext} from './../../../context/StoreContext';
+import {ActionsType, AppStateType} from '../../../redux/redux-store';
+import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
 
-const PostsAreaContainer = () => {
-    return <StoreContext.Consumer>
-        {
-            (store) => {
-                let state = store.getState().profilePage
+type MapStatePropsType = {
+    postCardElements: Array<JSX.Element>
+    newPostText: string
+}
 
-                const getPostCardsList: Array<JSX.Element> = state.postCards.map((postCard) => {
-                    return (
-                        <PostCard
-                            key={postCard.id}
-                            id={postCard.id}
-                            postText={postCard.postText}
-                            avatarLink={postCard.avatarLink}
-                            isLiked={postCard.isLiked}
-                            likesNumber={postCard.likesNumber}
-                        />
-                    )
-                })
-                const addPost = () => {
-                    store.dispatch(addPostAС())
-                };
-                const onPostChange = (newText: string) => {
-                    let action: ActionsType = updateNewPostAС(newText)
-                    store.dispatch(action)
-                };
+type MapDispatchPropsType = {
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
+}
 
-                return <PostsArea
-                    addPost={addPost}
-                    updateNewPostText={onPostChange}
-                    postCardElements={getPostCardsList}
-                    newPostText={state.newPostText}
-                />
-            }
-        }
-    </StoreContext.Consumer>
+export type PostsAreaPropsType = MapStatePropsType & MapDispatchPropsType
 
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
+    let localState = state.profilePage
 
+    const getPostCardsList: Array<JSX.Element> = localState.postCards.map((postCard) => {
+        return (
+            <PostCard
+                key={postCard.id}
+                id={postCard.id}
+                postText={postCard.postText}
+                avatarLink={postCard.avatarLink}
+                isLiked={postCard.isLiked}
+                likesNumber={postCard.likesNumber}
+            />
+        )
+    })
+    return {
+        postCardElements: getPostCardsList,
+        newPostText: localState.newPostText
+    };
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
+    return {
+        addPost: () => {
+            dispatch(addPostAС())
+        },
+        updateNewPostText: (newText: string) => {
+            let action: ActionsType = updateNewPostAC(newText)
+            dispatch(action)
+        }
+    };
+};
+
+const PostsAreaContainer = connect(mapStateToProps, mapDispatchToProps)(PostsArea)
 
 export default PostsAreaContainer;

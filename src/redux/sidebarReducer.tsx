@@ -1,5 +1,12 @@
-import {ActionsType, SidebarPageType} from './Store';
 import {v1} from 'uuid';
+import {FriendType} from '../components/Sidebar/Friends/Friends';
+import {ActionsType} from './redux-store';
+import {NavigationElementType} from '../components/Sidebar/Navigation/NavigationElement';
+
+export type SidebarPageType = {
+    navigationElements: Array<NavigationElementType>
+    friends: Array<FriendType>
+}
 
 const initialState: SidebarPageType =  {
     navigationElements: [
@@ -17,7 +24,7 @@ const initialState: SidebarPageType =  {
     ]
 }
 
-const sidebarReducer = (state: SidebarPageType = initialState, action: ActionsType) => {
+const sidebarReducer = (state: SidebarPageType = initialState, action: ActionsType):SidebarPageType => {
     return state;
 };
 

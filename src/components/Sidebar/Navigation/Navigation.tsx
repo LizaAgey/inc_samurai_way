@@ -1,7 +1,6 @@
 import React from 'react';
 import 'macro-css'
-import {NavigationElementType} from '../../../redux/Store';
-import NavigationElement from './NavigationElement';
+import NavigationElement, {NavigationElementType} from './NavigationElement';
 
 type NavigationPropsType = {
     navigationElements: Array<NavigationElementType>

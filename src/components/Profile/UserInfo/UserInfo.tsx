@@ -1,12 +1,20 @@
 import React from 'react';
 import styles from "./UserInfo.module.scss";
-import {UserInfoStateType} from './UserInfoContainer';
+import {UserInfoPropsType, UserInfoStateType} from './UserInfoContainer';
 
-type UserInfoPropsType = {
-    userInfoState: UserInfoStateType
-}
+const UserInfo= ({state}:UserInfoPropsType) => {
 
-const UserInfo= ({userInfoState}:UserInfoPropsType) => {
+    let currentUser = state[0]
+    const userInfoState: UserInfoStateType = {
+        id: currentUser.id,
+        avatar: currentUser.avatar,
+        name: currentUser.name,
+        bday: currentUser.bday,
+        city: currentUser.city,
+        education: currentUser.education,
+        media: currentUser.media,
+    }
+
     return (
         <>
             <div className={styles.imgBackground}></div>

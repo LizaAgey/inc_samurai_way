@@ -1,6 +1,9 @@
 import React from 'react';
 import UserInfo from './UserInfo';
-import {StoreContext} from './../../../context/StoreContext';
+import {connect} from 'react-redux';
+import {AppStateType} from '../../../redux/redux-store';
+import {UserType} from '../../../redux/profileReducer';
+
 
 export type UserInfoStateType = {
     id: string,
@@ -11,27 +14,18 @@ export type UserInfoStateType = {
     education: string,
     media: string
 }
+type mapStatePropsType = {
+    state: Array<UserType>
+}
+export type UserInfoPropsType = mapStatePropsType
 
-const UserInfoContainer = () => {
-
-   return  <StoreContext.Consumer>
-        {
-            (store) => {
-                let state = store.getState().profilePage.users[0]
-                const userInfoState: UserInfoStateType = {
-                    id: state.id,
-                    avatar: state.avatar,
-                    name: state.name,
-                    bday: state.bday,
-                    city: state.city,
-                    education: state.education,
-                    media: state.media,
-                }
-
-                return <UserInfo userInfoState={userInfoState}/>;
-            }
-        }
-    </StoreContext.Consumer>
+const MapStateToProps = (state: AppStateType):mapStatePropsType => {
+    return {
+        state: state.profilePage.users
+    };
 };
+
+
+const UserInfoContainer = connect(MapStateToProps)(UserInfo)
 
 export default UserInfoContainer;

@@ -1,5 +1,24 @@
-import {ActionsType, DialoguesPageType, MessageType} from './Store';
 import {v1} from 'uuid';
+import {ActionsType} from './redux-store';
+
+export type DialoguesPageType = {
+    dialogues: Array<DialogueType>
+    messages: Array<MessageType>
+    newMessageText: string
+}
+export type DialogueType = {
+    id: string
+    avatarLink: string
+    friendName: string
+}
+export type MessageType = {
+    avatarLink: string,
+    userName: string,
+    time: string,
+    text: string,
+    id: string,
+    isOwnMessage: boolean
+}
 
 export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 export const SEND_MESSAGE = 'SEND-MESSAGE'
@@ -72,11 +91,12 @@ const initialState: DialoguesPageType =  {
         newMessageText: ''
     }
 
-const dialoguesReducer = (state: DialoguesPageType = initialState, action: ActionsType) => {
+const dialoguesReducer = (state: DialoguesPageType = initialState, action: ActionsType):DialoguesPageType => {
     switch (action.type) {
         case UPDATE_MESSAGE_TEXT:
             state.newMessageText = action.newMessageText
             return state;
+
         case SEND_MESSAGE:
             let newMessageText = state.newMessageText
             state.newMessageText = ''
@@ -90,6 +110,7 @@ const dialoguesReducer = (state: DialoguesPageType = initialState, action: Actio
             }
             state.messages.push(newMessage)
             return state;
+
         default:
             return state;
     }
