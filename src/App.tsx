@@ -4,26 +4,28 @@ import 'macro-css'
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import {Route} from 'react-router-dom';
-import {ReduxStoreType} from './redux/redux-store';
 import Sidebar from './components/Sidebar/Sidebar';
 import DialoguesContainer from './components/Dialogues/DialoguesContainer';
+import { StoreContext } from './context/StoreContext';
 
-type AppPropsType = {
-    store: ReduxStoreType
-}
-
-const App = (props: AppPropsType) => {
-    const state = props.store.getState()
-
+const App = () => {
     return (
-        <div className={'appWrapper'}>
-            <Header/>
-            <Route path="/profile" render={() =>
-                <Profile store={props.store}/>}/>
-            <Route path="/messages" render={() =>
-                <DialoguesContainer store={props.store}/>}/>
-            <Sidebar state={state.sidebarPage}/>
-        </div>
+        <StoreContext.Consumer>
+            {
+                (store)=> {
+                    const state = store.getState()
+                    return ( <div className={'appWrapper'}>
+                        <Header/>
+                        <Route path="/profile" render={() =>
+                            <Profile/>}/>
+                        <Route path="/messages" render={() =>
+                            <DialoguesContainer/>}/>
+                        <Sidebar state={state.sidebarPage}/>
+                    </div>)
+                }
+
+}
+            </StoreContext.Consumer>
     );
 }
 

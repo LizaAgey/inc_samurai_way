@@ -1,13 +1,9 @@
 import React from 'react';
-import styles from "./UserInfo.module.scss";
-import {ReduxStoreType} from '../../../redux/redux-store';
 import UserInfo from './UserInfo';
+import {StoreContext} from './../../../context/StoreContext';
 
-type UserInfoPropsType = {
-    store: ReduxStoreType
-}
 export type UserInfoStateType = {
-    id:string,
+    id: string,
     avatar: string,
     name: string,
     bday: string,
@@ -16,19 +12,26 @@ export type UserInfoStateType = {
     media: string
 }
 
-const UserInfoContainer= ({store}: UserInfoPropsType) => {
-    let state = store.getState().profilePage.users[0]
-    const userInfoState: UserInfoStateType = {
-        id:state.id,
-        avatar:state.avatar,
-        name:state.name,
-        bday:state.bday,
-        city:state.city,
-        education:state.education,
-        media:state.media,
-    }
+const UserInfoContainer = () => {
 
-    return <UserInfo userInfoState={userInfoState}/>   ;
+   return  <StoreContext.Consumer>
+        {
+            (store) => {
+                let state = store.getState().profilePage.users[0]
+                const userInfoState: UserInfoStateType = {
+                    id: state.id,
+                    avatar: state.avatar,
+                    name: state.name,
+                    bday: state.bday,
+                    city: state.city,
+                    education: state.education,
+                    media: state.media,
+                }
+
+                return <UserInfo userInfoState={userInfoState}/>;
+            }
+        }
+    </StoreContext.Consumer>
 };
 
 export default UserInfoContainer;

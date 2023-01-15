@@ -20,4 +20,4 @@ export type ReduxStoreType = {
 }
 
 export const store: ReduxStoreType = createStore(reducers)
-console.log(store)
+console.log(store.getState())
