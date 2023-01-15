@@ -61,7 +61,7 @@ const initialState: ProfilePageType =  {
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             let newPost: PostCardType = {
                 id: v1(),
                 postText: state.newPostText,
@@ -69,12 +69,17 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionsTy
                 isLiked: false,
                 likesNumber: 0
             }
-            state.postCards.push(newPost)
-            state.newPostText = ''
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            return state;
+            let copyState = {...state}
+            copyState.postCards = [...state.postCards]
+            copyState.postCards.push(newPost)
+            copyState.newPostText = ''
+            return copyState;
+        }
+        case UPDATE_NEW_POST_TEXT: {
+            let copyState = {...state}
+            copyState.newPostText = action.newText
+            return copyState;
+        }
         default:
             return state;
     }
