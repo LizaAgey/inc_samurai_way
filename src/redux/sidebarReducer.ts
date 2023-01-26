@@ -14,7 +14,8 @@ const initialState: SidebarPageType =  {
         {id: v1(), link: '/messages', navTitle: 'Dialogues', linkIcon: './img/messages.ico'},
         {id: v1(), link: '/news', navTitle: 'News', linkIcon: './img/news.ico'},
         {id: v1(), link: '/music', navTitle: 'Music', linkIcon: './img/music.ico'},
-        {id: v1(), link: '/settings', navTitle: 'Settings', linkIcon: './img/settings.ico'}
+        {id: v1(), link: '/users', navTitle: 'Users', linkIcon: './img/users.ico'},
+        {id: v1(), link: '/settings', navTitle: 'Settings', linkIcon: './img/settings.ico'},
     ],
     friends: [
         {id: v1(), avatarLink: './img/friends/1.png', friendName: 'Alex Key'},

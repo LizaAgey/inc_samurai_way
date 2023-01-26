@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 import {Route} from 'react-router-dom';
 import DialoguesContainer from './components/Dialogues/DialoguesContainer';
 import SidebarContainer from './components/Sidebar/SidebarContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = () => {
     return (
@@ -15,6 +16,8 @@ const App = () => {
                 <Profile/>}/>
             <Route path="/messages" render={() =>
                 <DialoguesContainer/>}/>
+            <Route path="/users" render={() =>
+                <UsersContainer/>}/>
             <SidebarContainer/>
         </div>
     );
