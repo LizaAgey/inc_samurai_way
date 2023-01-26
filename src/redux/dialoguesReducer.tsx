@@ -93,15 +93,11 @@ const initialState: DialoguesPageType = {
 
 const dialoguesReducer = (state: DialoguesPageType = initialState, action: ActionsType): DialoguesPageType => {
     switch (action.type) {
-        case UPDATE_MESSAGE_TEXT: {
-            let copyState = {...state}
-            copyState.newMessageText = action.newMessageText
-            return copyState;
-        }
-        case SEND_MESSAGE: {
+        case UPDATE_MESSAGE_TEXT:
+            return {...state, newMessageText: action.newMessageText}
+
+        case SEND_MESSAGE:
             let newMessageText = state.newMessageText
-            let copyState = {...state}
-            copyState.newMessageText = ''
             let newMessage: MessageType = {
                 id: v1(),
                 text: newMessageText,
@@ -110,10 +106,7 @@ const dialoguesReducer = (state: DialoguesPageType = initialState, action: Actio
                 avatarLink: './img/avatar.jpg',
                 isOwnMessage: true
             }
-            copyState.messages = [...state.messages]
-            copyState.messages.push(newMessage)
-            return copyState;
-        }
+            return {...state, messages: [...state.messages, newMessage], newMessageText: ''}
 
         default:
             return state;

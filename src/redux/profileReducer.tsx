@@ -29,7 +29,7 @@ export const ADD_POST = 'ADD-POST'
 export const addPostAС = () => ({type: ADD_POST} as const)
 export const updateNewPostAC = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
 
-const initialState: ProfilePageType =  {
+const initialState: ProfilePageType = {
     users: [
         {
             id: v1(),
@@ -60,8 +60,9 @@ const initialState: ProfilePageType =  {
 }
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
+
     switch (action.type) {
-        case ADD_POST: {
+        case ADD_POST:
             let newPost: PostCardType = {
                 id: v1(),
                 postText: state.newPostText,
@@ -69,17 +70,11 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionsTy
                 isLiked: false,
                 likesNumber: 0
             }
-            let copyState = {...state}
-            copyState.postCards = [...state.postCards]
-            copyState.postCards.push(newPost)
-            copyState.newPostText = ''
-            return copyState;
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            let copyState = {...state}
-            copyState.newPostText = action.newText
-            return copyState;
-        }
+            return {...state, postCards: [...state.postCards, newPost], newPostText: ''}
+
+        case UPDATE_NEW_POST_TEXT:
+            return {...state, newPostText: action.newText}
+
         default:
             return state;
     }
