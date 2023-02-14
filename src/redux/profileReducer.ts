@@ -1,19 +1,11 @@
 import {v1} from 'uuid';
 import {ActionsType} from './redux-store';
+import {UserType} from './usersReducer';
 
 export type ProfilePageType = {
     users: Array<UserType>
     postCards: Array<PostCardType>
     newPostText: string
-}
-export type UserType = {
-    id: string
-    avatar: string
-    name: string
-    bday: string
-    city: string
-    education: string
-    media: string
 }
 export type PostCardType = {
     id: string,
@@ -32,13 +24,12 @@ export const updateNewPostAC = (newText: string) => ({type: UPDATE_NEW_POST_TEXT
 const initialState: ProfilePageType = {
     users: [
         {
-            id: v1(),
-            avatar: './img/avatar.jpg',
             name: 'Billy Way',
-            bday: '2 January',
-            city: 'New York',
-            education: 'The Harvard university',
-            media: '@BillyWay'
+            id: 21345678,
+            uniqueUrlName: null,
+            photos: {small: './img/avatar.jpg', large: './img/avatar.jpg'},
+            status: 'Hello, world',
+            followed: false
         }
     ],
     postCards: [

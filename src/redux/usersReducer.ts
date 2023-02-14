@@ -1,27 +1,23 @@
-import {v1} from 'uuid';
 import {ActionsType} from './redux-store';
 
 export type UsersPageType = {
     users: Array<UserType>
 }
 export type UserType = {
-    id: string
-    avatar: string
     name: string
-    bday: string
-    location: { city: string, country: string }
-    education: string
-    media: string
-    status: string
-    isFollowed: boolean
+    id:number
+    uniqueUrlName: string | null
+    photos: {small: string | null, large: string | null}
+    status: string | null
+    followed : boolean
 }
 
 export const FOLLOW = 'FOLLOW'
 export const UNFOLLOW = 'UNFOLLOW'
 export const SET_USERS = 'SET_USERS'
 
-export const followAС = (userID: string) => ({type: FOLLOW, userID} as const)
-export const unfollowAС = (userID: string) => ({type: UNFOLLOW, userID} as const)
+export const followAС = (userID: number) => ({type: FOLLOW, userID} as const)
+export const unfollowAС = (userID: number) => ({type: UNFOLLOW, userID} as const)
 export const setUsersAC = (users: Array<UserType>) => ({type: SET_USERS, users} as const)
 
 

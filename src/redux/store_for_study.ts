@@ -22,13 +22,12 @@ export const store_for_study: StoreType = {
         profilePage: {
             users: [
                 {
-                    id: v1(),
-                    avatar: './img/avatar.jpg',
                     name: 'Billy Way',
-                    bday: '2 January',
-                    city: 'New York',
-                    education: 'The Harvard university',
-                    media: '@BillyWay'
+                    id: 213456783,
+                    uniqueUrlName: null,
+                    photos: {small: './img/avatar.jpg', large: './img/avatar.jpg'},
+                    status: 'Hello, world',
+                    followed: false
                 }
             ],
             postCards: [
@@ -50,7 +49,7 @@ export const store_for_study: StoreType = {
         },
         dialoguesPage: {
             dialogues: [
-                {id: v1(), avatarLink: './img/friends/1.png', friendName: 'Alex Key'},
+                {id: v1(), avatarLink: './img/friends/user-without-photo.png', friendName: 'Alex Key'},
                 {id: v1(), avatarLink: './img/friends/2.png', friendName: 'Martin Bin'},
                 {id: v1(), avatarLink: './img/friends/3.png', friendName: 'Bob Wall'},
                 {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}
@@ -61,7 +60,7 @@ export const store_for_study: StoreType = {
                     text: 'Hello, people! How are you?',
                     time: '12:15',
                     userName: 'Alex Key',
-                    avatarLink: './img/friends/1.png',
+                    avatarLink: './img/friends/user-without-photo.png',
                     isOwnMessage: false
                 },
                 {
@@ -116,7 +115,7 @@ export const store_for_study: StoreType = {
                 {id: v1(), link: '/settings', navTitle: 'Settings', linkIcon: './img/settings.ico'}
             ],
             friends: [
-                {id: v1(), avatarLink: './img/friends/1.png', friendName: 'Alex Key'},
+                {id: v1(), avatarLink: './img/friends/user-without-photo.png', friendName: 'Alex Key'},
                 {id: v1(), avatarLink: './img/friends/2.png', friendName: 'Martin Bin'},
                 {id: v1(), avatarLink: './img/friends/3.png', friendName: 'Bob Wall'},
                 {id: v1(), avatarLink: './img/friends/4.png', friendName: 'Billy Han'}

@@ -2,18 +2,8 @@ import React from 'react';
 import UserInfo from './UserInfo';
 import {connect} from 'react-redux';
 import {AppStateType} from '../../../redux/redux-store';
-import {UserType} from '../../../redux/profileReducer';
+import {UserType} from '../../../redux/usersReducer';
 
-
-export type UserInfoStateType = {
-    id: string,
-    avatar: string,
-    name: string,
-    bday: string,
-    city: string,
-    education: string,
-    media: string
-}
 type mapStatePropsType = {
     state: Array<UserType>
 }
