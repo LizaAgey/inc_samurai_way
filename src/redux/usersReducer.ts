@@ -2,6 +2,9 @@ import {ActionsType} from './redux-store';
 
 export type UsersPageType = {
     users: Array<UserType>
+    totalUsersCount: number
+    usersPerPage: number
+    currentPageNumber: number
 }
 export type UserType = {
     name: string
@@ -22,7 +25,10 @@ export const setUsersAC = (users: Array<UserType>) => ({type: SET_USERS, users} 
 
 
 const initialState: UsersPageType = {
-    users: []
+    users: [],
+    totalUsersCount: 20,
+    usersPerPage: 5,
+    currentPageNumber: 1
 }
 
 const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {

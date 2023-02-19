@@ -1,10 +1,9 @@
 import React from 'react';
-import styles from '../Profile/Profile.module.scss';
 import {UsersPropsType} from './UsersContainer';
 import * as axios from 'axios';
 import {UserType} from '../../redux/usersReducer';
 import userWithoutPhotoImg from '../../assets/img/users/user-without-photo.png'
-import {store} from '../../redux/redux-store';
+import styles from "./Users.module.css"
 
 type usersResponseType = {
     error: string | null
@@ -14,16 +13,24 @@ type usersResponseType = {
 
 
 class Users extends React.Component<UsersPropsType> {
-    constructor(props: Readonly<UsersPropsType>) {
-        super(props);
-        axios.default.get<usersResponseType>('https://social-network.samuraijs.com/api/1.0/users')
+    componentDidMount() {
+        axios.default.get<usersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPageNumber}&count=${this.props.usersPerPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
             })
     }
 
     render() {
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.usersPerPage)
+        let pagesValues: Array<number> = []
+        for (let i = 1; i <= pagesCount; i++) {
+            pagesValues.push(i)
+        }
+
         return <div className={`${styles.content} m-20`}>
+            <div>
+                {pagesValues.map(value => <span className={this.props.currentPageNumber === value ? styles.currentUsersPage : ""}>{value}</span>)}
+            </div>
             {this.props.users.map((user: UserType) => {
                 return (
                     <div key={user.id}>
