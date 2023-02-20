@@ -1,10 +1,9 @@
 import React from 'react';
 import PostCard from './PostCard/PostCard';
-import {addPostAС, updateNewPostAC} from '../../../redux/profileReducer';
+import {addPost, updateNewPost} from '../../../redux/profileReducer';
 import PostsArea from './PostsArea';
-import {ActionsType, AppStateType} from '../../../redux/redux-store';
+import {AppStateType} from '../../../redux/redux-store';
 import {connect} from 'react-redux';
-import {Dispatch} from 'redux';
 
 type MapStatePropsType = {
     postCardElements: Array<JSX.Element>
@@ -13,7 +12,7 @@ type MapStatePropsType = {
 
 type MapDispatchPropsType = {
     addPost: () => void
-    updateNewPostText: (newText: string) => void
+    updateNewPost: (newText: string) => void
 }
 
 export type PostsAreaPropsType = MapStatePropsType & MapDispatchPropsType
@@ -39,18 +38,6 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
-    return {
-        addPost: () => {
-            dispatch(addPostAС())
-        },
-        updateNewPostText: (newText: string) => {
-            let action: ActionsType = updateNewPostAC(newText)
-            dispatch(action)
-        }
-    };
-};
-
-const PostsAreaContainer = connect(mapStateToProps, mapDispatchToProps)(PostsArea)
+const PostsAreaContainer = connect(mapStateToProps, {addPost, updateNewPost})(PostsArea)
 
 export default PostsAreaContainer;

@@ -1,26 +1,26 @@
 import {combineReducers, createStore} from 'redux';
-import dialoguesReducer, {sendMessageAC, updateNewMessageTextAC} from './dialoguesReducer';
-import profileReducer, {addPostAС, updateNewPostAC} from './profileReducer';
+import dialoguesReducer, {sendMessage, updateNewMessageText} from './dialoguesReducer';
+import profileReducer, {addPost, updateNewPost} from './profileReducer';
 import sidebarReducer from './sidebarReducer';
 import usersReducer, {
-    followAС,
-    setCurrentUsersPageAC, setFetchingModeAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    unfollowAС
+    follow,
+    setCurrentUsersPage, setFetchingMode,
+    setTotalUsersCount,
+    setUsers,
+    unfollow
 } from './usersReducer';
 
 export type ActionsType =
-    ReturnType<typeof addPostAС>
-    | ReturnType<typeof updateNewPostAC>
-    | ReturnType<typeof sendMessageAC>
-    | ReturnType<typeof updateNewMessageTextAC>
-    | ReturnType<typeof followAС>
-    | ReturnType<typeof unfollowAС>
-    | ReturnType<typeof setUsersAC>
-    | ReturnType<typeof setCurrentUsersPageAC>
-    | ReturnType<typeof setTotalUsersCountAC>
-    | ReturnType<typeof setFetchingModeAC>
+    ReturnType<typeof addPost>
+    | ReturnType<typeof updateNewPost>
+    | ReturnType<typeof sendMessage>
+    | ReturnType<typeof updateNewMessageText>
+    | ReturnType<typeof follow>
+    | ReturnType<typeof unfollow>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentUsersPage>
+    | ReturnType<typeof setTotalUsersCount>
+    | ReturnType<typeof setFetchingMode>
 
 
 let rootReducer = combineReducers({

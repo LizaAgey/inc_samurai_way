@@ -1,6 +1,6 @@
 import React from 'react';
 import 'macro-css'
-import {DialoguesPageType, sendMessageAC, updateNewMessageTextAC} from '../../redux/dialoguesReducer';
+import {DialoguesPageType, sendMessage, updateNewMessageText} from '../../redux/dialoguesReducer';
 import Dialogues from './Dialogues';
 import {connect} from 'react-redux';
 import {AppStateType} from '../../redux/redux-store';
@@ -23,18 +23,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
-    return {
-        updateNewMessageText: (currentText: string) => {
-            dispatch(updateNewMessageTextAC(currentText))
-        },
-        sendMessage: () => {
-            dispatch(sendMessageAC())
-        }
-    };
-};
-
-const DialoguesContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogues)
+const DialoguesContainer = connect(mapStateToProps, {updateNewMessageText, sendMessage})(Dialogues)
 
 export default DialoguesContainer;
 
@@ -45,10 +34,10 @@ export default DialoguesContainer;
 //                 let state = store.getState().dialoguesPage
 //
 //                 const sendMessageHandler = () => {
-//                     store.dispatch(sendMessageAC())
+//                     store.dispatch(sendMessageAC)
 //                 };
 //                 const updateNewMessageText = (currentText: string) => {
-//                     store.dispatch(updateNewMessageTextAC(currentText))
+//                     store.dispatch(updateNewMessageText(currentText))
 //                 };
 //
 //                 return <Dialogues

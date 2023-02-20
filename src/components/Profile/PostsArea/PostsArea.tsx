@@ -10,7 +10,7 @@ const PostsArea = (props: PostsAreaPropsType) => {
         debugger
         let currentText = event.currentTarget.value
         if (currentText || currentText === '') {
-            props.updateNewPostText(currentText)
+            props.updateNewPost(currentText)
         }
     };
     const onEnterAddPost = (event: KeyboardEvent<HTMLInputElement>) => {

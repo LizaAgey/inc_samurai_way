@@ -23,8 +23,8 @@ export type MessageType = {
 export const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 export const SEND_MESSAGE = 'SEND-MESSAGE'
 
-export const sendMessageAC = () => ({type: 'SEND-MESSAGE',} as const)
-export const updateNewMessageTextAC = (newMessageText: string) => {
+export const sendMessage = () => ({type: 'SEND-MESSAGE',} as const)
+export const updateNewMessageText = (newMessageText: string) => {
     return {
         type: 'UPDATE-MESSAGE-TEXT',
         newMessageText

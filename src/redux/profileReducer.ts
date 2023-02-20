@@ -18,8 +18,8 @@ export type PostCardType = {
 export const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 export const ADD_POST = 'ADD-POST'
 
-export const addPostAС = () => ({type: ADD_POST} as const)
-export const updateNewPostAC = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
+export const addPost = () => ({type: ADD_POST} as const)
+export const updateNewPost = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
 
 const initialState: ProfilePageType = {
     users: [

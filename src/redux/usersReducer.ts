@@ -23,18 +23,18 @@ export const SET_CURRENT_USERS_PAGE = 'SET_CURRENT_USERS_PAGE'
 export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 export const SET_FETCHING_MODE = 'SET_FETCHING_MODE'
 
-export const followAС = (userID: number) => ({type: FOLLOW, userID} as const)
-export const unfollowAС = (userID: number) => ({type: UNFOLLOW, userID} as const)
-export const setUsersAC = (users: Array<UserType>) => ({type: SET_USERS, users} as const)
-export const setCurrentUsersPageAC = (currentPageNumber: number) => ({
+export const follow = (userID: number) => ({type: FOLLOW, userID} as const)
+export const unfollow = (userID: number) => ({type: UNFOLLOW, userID} as const)
+export const setUsers = (users: Array<UserType>) => ({type: SET_USERS, users} as const)
+export const setCurrentUsersPage = (currentPageNumber: number) => ({
     type: SET_CURRENT_USERS_PAGE,
     currentPageNumber
 } as const)
-export const setTotalUsersCountAC = (totalUsersCount: number) => ({
+export const setTotalUsersCount = (totalUsersCount: number) => ({
     type: SET_TOTAL_USERS_COUNT,
     totalUsersCount
 } as const)
-export const setFetchingModeAC = (isFetching: boolean) => ({
+export const setFetchingMode = (isFetching: boolean) => ({
     type: SET_FETCHING_MODE,
     isFetching
 } as const)
