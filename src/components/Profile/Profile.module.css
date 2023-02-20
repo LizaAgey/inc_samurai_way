@@ -32,4 +32,9 @@ a {
   grid-auto-columns: 1fr 2fr;
 }
 
+.imgBackground {
+  grid-area: imgBackground;
+  background: linear-gradient(90deg, rgb(229, 140, 138) 35%, rgb(238, 192, 198) 100%);
+}
+
 /*# sourceMappingURL=Profile.module.css.map */

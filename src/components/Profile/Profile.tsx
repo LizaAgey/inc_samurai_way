@@ -2,12 +2,16 @@ import React from 'react';
 import 'macro-css'
 import styles from './Profile.module.scss'
 import PostsAreaContainer from './PostsArea/PostsAreaContainer';
-import UserInfoContainer from './UserInfo/UserInfoContainer';
+import {ProfileCombinedPropsType} from './ProfileContainer';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import Loader from '../Loader/Loader';
 
-const Profile = () => {
+const Profile = (props:ProfileCombinedPropsType) => {
     return (
         <div className={`${styles.content} m-20`}>
-            <UserInfoContainer/>
+            <div className={styles.imgBackground}></div>
+            {props.profileInfo ? <ProfileInfo profileInfo={props.profileInfo}/> : <Loader/>}
+
             <PostsAreaContainer/>
         </div>
     );

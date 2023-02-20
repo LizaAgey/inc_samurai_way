@@ -1,6 +1,6 @@
 import {combineReducers, createStore} from 'redux';
 import dialoguesReducer, {sendMessage, updateNewMessageText} from './dialoguesReducer';
-import profileReducer, {addPost, updateNewPost} from './profileReducer';
+import profileReducer, {addPost, setUserProfile, updateNewPost} from './profileReducer';
 import sidebarReducer from './sidebarReducer';
 import usersReducer, {
     follow,
@@ -21,6 +21,7 @@ export type ActionsType =
     | ReturnType<typeof setCurrentUsersPage>
     | ReturnType<typeof setTotalUsersCount>
     | ReturnType<typeof setFetchingMode>
+    | ReturnType<typeof setUserProfile>
 
 
 let rootReducer = combineReducers({

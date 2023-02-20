@@ -11,3 +11,7 @@
   grid-template-rows: 100px 1fr 100%;
   grid-auto-columns: 1fr 2fr;
 }
+.imgBackground {
+  grid-area: imgBackground;
+  background: linear-gradient(90deg, rgba(229, 140, 138, 1) 35%, rgba(238, 192, 198, 1) 100%);
+}

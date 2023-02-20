@@ -1,11 +1,13 @@
 import {v1} from 'uuid';
 import {ActionsType} from './redux-store';
 import {UserType} from './usersReducer';
+import {ProfileResponseType} from '../components/Profile/ProfileContainer';
 
 export type ProfilePageType = {
     users: Array<UserType>
     postCards: Array<PostCardType>
     newPostText: string
+    profileInfo: ProfileResponseType | null
 }
 export type PostCardType = {
     id: string,
@@ -17,9 +19,11 @@ export type PostCardType = {
 
 export const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 export const ADD_POST = 'ADD-POST'
+export const SET_USER_PROFILE = 'SET_USER_PROFILE-POST'
 
 export const addPost = () => ({type: ADD_POST} as const)
-export const updateNewPost = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText: newText} as const)
+export const updateNewPost = (newText: string) => ({type: UPDATE_NEW_POST_TEXT, newText} as const)
+export const setUserProfile = (profileInfo: ProfileResponseType) => ({type: SET_USER_PROFILE, profile: profileInfo} as const)
 
 const initialState: ProfilePageType = {
     users: [
@@ -47,7 +51,8 @@ const initialState: ProfilePageType = {
             likesNumber: 0
         },
     ],
-    newPostText: ''
+    newPostText: '',
+    profileInfo: null
 }
 
 const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
@@ -65,6 +70,9 @@ const profileReducer = (state: ProfilePageType = initialState, action: ActionsTy
 
         case UPDATE_NEW_POST_TEXT:
             return {...state, newPostText: action.newText}
+
+        case SET_USER_PROFILE:
+            return {...state, profileInfo:action.profile}
 
         default:
             return state;

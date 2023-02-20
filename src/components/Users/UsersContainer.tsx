@@ -14,7 +14,7 @@ import * as axios from 'axios';
 import Users from './Users';
 import Loader from '../Loader/Loader';
 
-type usersResponseType = {
+type UsersResponseType = {
     error: string | null
     items: Array<UserType>
     totalCount: number
@@ -40,7 +40,7 @@ export type UsersCombinedPropsType = MapStatePropsType & MapDispatchPropsType
 class UsersContainer extends React.Component<UsersCombinedPropsType> {
     componentDidMount() {
         this.props.setFetchingMode(true)
-        axios.default.get<usersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPageNumber}&count=${this.props.usersPerPage}`)
+        axios.default.get<UsersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPageNumber}&count=${this.props.usersPerPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalUsersCount(response.data.totalCount)
@@ -52,7 +52,7 @@ class UsersContainer extends React.Component<UsersCombinedPropsType> {
     onPageSelection = (pageNumber: number) => {
         this.props.setFetchingMode(true)
         this.props.setCurrentUsersPage(pageNumber)
-        axios.default.get<usersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`)
+        axios.default.get<UsersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setFetchingMode(false)

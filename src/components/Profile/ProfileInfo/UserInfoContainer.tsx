@@ -1,5 +1,5 @@
 import React from 'react';
-import UserInfo from './UserInfo';
+import ProfileInfo from './ProfileInfo';
 import {connect} from 'react-redux';
 import {AppStateType} from '../../../redux/redux-store';
 import {UserType} from '../../../redux/usersReducer';
@@ -16,6 +16,6 @@ const MapStateToProps = (state: AppStateType):mapStatePropsType => {
 };
 
 
-const UserInfoContainer = connect(MapStateToProps)(UserInfo)
+const UserInfoContainer = connect(MapStateToProps)(ProfileInfo)
 
 export default UserInfoContainer;
