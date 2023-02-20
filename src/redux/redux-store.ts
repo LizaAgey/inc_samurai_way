@@ -4,7 +4,7 @@ import profileReducer, {addPostAС, updateNewPostAC} from './profileReducer';
 import sidebarReducer from './sidebarReducer';
 import usersReducer, {
     followAС,
-    setCurrentUsersPageAC,
+    setCurrentUsersPageAC, setFetchingModeAC,
     setTotalUsersCountAC,
     setUsersAC,
     unfollowAС
@@ -20,6 +20,7 @@ export type ActionsType =
     | ReturnType<typeof setUsersAC>
     | ReturnType<typeof setCurrentUsersPageAC>
     | ReturnType<typeof setTotalUsersCountAC>
+    | ReturnType<typeof setFetchingModeAC>
 
 
 let rootReducer = combineReducers({

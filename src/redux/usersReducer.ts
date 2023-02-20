@@ -5,6 +5,7 @@ export type UsersPageType = {
     totalUsersCount: number
     usersPerPage: number
     currentPageNumber: number
+    isFetching: boolean
 }
 export type UserType = {
     name: string
@@ -20,6 +21,7 @@ export const UNFOLLOW = 'UNFOLLOW'
 export const SET_USERS = 'SET_USERS'
 export const SET_CURRENT_USERS_PAGE = 'SET_CURRENT_USERS_PAGE'
 export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+export const SET_FETCHING_MODE = 'SET_FETCHING_MODE'
 
 export const followAС = (userID: number) => ({type: FOLLOW, userID} as const)
 export const unfollowAС = (userID: number) => ({type: UNFOLLOW, userID} as const)
@@ -32,12 +34,17 @@ export const setTotalUsersCountAC = (totalUsersCount: number) => ({
     type: SET_TOTAL_USERS_COUNT,
     totalUsersCount
 } as const)
+export const setFetchingModeAC = (isFetching: boolean) => ({
+    type: SET_FETCHING_MODE,
+    isFetching
+} as const)
 
 const initialState: UsersPageType = {
     users: [],
     totalUsersCount: 0,
     usersPerPage: 5,
-    currentPageNumber: 1
+    currentPageNumber: 1,
+    isFetching: false
 }
 
 const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {
@@ -71,7 +78,9 @@ const usersReducer = (state: UsersPageType = initialState, action: ActionsType):
             return {...state, currentPageNumber: action.currentPageNumber}
         case SET_TOTAL_USERS_COUNT:
             return {...state, totalUsersCount: action.totalUsersCount}
-
+        case SET_FETCHING_MODE:
+            console.log("fetching",action.isFetching)
+            return {...state, isFetching: action.isFetching}
         default:
             return state
     }
