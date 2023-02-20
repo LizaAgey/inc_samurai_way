@@ -3,7 +3,7 @@ import {UsersPropsType} from './UsersContainer';
 import * as axios from 'axios';
 import {UserType} from '../../redux/usersReducer';
 import userWithoutPhotoImg from '../../assets/img/users/user-without-photo.png'
-import styles from "./Users.module.css"
+import styles from './Users.module.css'
 
 type usersResponseType = {
     error: string | null
@@ -17,19 +17,35 @@ class Users extends React.Component<UsersPropsType> {
         axios.default.get<usersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPageNumber}&count=${this.props.usersPerPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
+                this.props.setTotalUsersCount(response.data.totalCount)
+            })
+    }
+
+    onPageSelection = (pageNumber: number) => {
+        this.props.setCurrentUsersPage(pageNumber)
+        axios.default.get<usersResponseType>(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.usersPerPage}`)
+            .then(response => {
+                this.props.setUsers(response.data.items)
+
             })
     }
 
     render() {
         let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.usersPerPage)
-        let pagesValues: Array<number> = []
+        let pageNumbers: Array<number> = []
         for (let i = 1; i <= pagesCount; i++) {
-            pagesValues.push(i)
+            pageNumbers.push(i)
         }
 
         return <div className={`${styles.content} m-20`}>
             <div>
-                {pagesValues.map(value => <span className={this.props.currentPageNumber === value ? styles.currentUsersPage : ""}>{value}</span>)}
+                {pageNumbers.map(pageNumber => <span
+                    className={this.props.currentPageNumber === pageNumber ? styles.currentUsersPage : ''}
+                    onClick={() => this.onPageSelection(pageNumber)}
+                    key={pageNumber}
+                >
+                    {pageNumber}
+                </span>)}
             </div>
             {this.props.users.map((user: UserType) => {
                 return (
