@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, compose, createStore, Store} from 'redux';
 import dialoguesReducer, {sendMessage, updateNewMessageText} from './dialoguesReducer';
 import profileReducer, {addPost, setUserProfile, updateNewPost} from './profileReducer';
 import sidebarReducer from './sidebarReducer';
@@ -23,6 +23,11 @@ export type ActionsType =
     | ReturnType<typeof setFetchingMode>
     | ReturnType<typeof setUserProfile>
 
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
 
 let rootReducer = combineReducers({
     //each reducer returns new state
@@ -31,7 +36,7 @@ let rootReducer = combineReducers({
     sidebarPage: sidebarReducer,
     usersPage: usersReducer
 })
-export type AppStateType = ReturnType<typeof rootReducer> // alternative for StateType (made manually)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+export const store: Store<AppStateType> = createStore(rootReducer, composeEnhancers())
 
-export const store = createStore(rootReducer)
-console.log(store.getState())
+export type AppStateType = ReturnType<typeof rootReducer> // alternative for StateType (made manually)
